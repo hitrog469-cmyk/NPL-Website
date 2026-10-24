@@ -47,6 +47,19 @@ Cricsheet import → cricket-core → Records, Table and pre-season Home, plus M
 | Anonymous sign-ins | On | Enabled by Rohit in the dashboard |
 | Not built | — | Super Over scoring, win probability model, quizzes, ads, player photos |
 
+## Milestone 3 — Sports Sathi multi-sport hub (24 Oct)
+
+| Item | Status | Evidence |
+| --- | --- | --- |
+| Rebrand + nav | Done | Sports Sathi; Home · NPL 2026 (sub-menu) · Cricket · Football · Fan Zone · Data. Featured competition = `SITE.featured` |
+| Cricket everywhere | Done | `scripts/derive-cricket.ts`: IPL 1,243 · T20I 3,627 · BBL 662 · PSL 357 · CPL 445 · SA20 130 · ILT20 134 · ODI 2,596 · Tests 896 matches; 2.2 MB summaries |
+| Engine fix | Done | Revised-target overs are cricket notation (14.4 = 88 balls); test added. Remaining 35 flags are source 7-ball overs |
+| Pages | Done | /cricket, /cricket/[comp] (results, champions, teams, records), 360 scorecards; 520 static pages; no overflow at 375/1440 |
+| Daily refresh | Done | Workflow also re-derives all competitions; deterministic (no diff when nothing new) |
+| NPL after restructure | Verified | All NPL/live/scorer routes 200 on Vercel; rehearsal page renders Rohit's saved state |
+| Football | Waiting | Page ready; needs a football-data.org API key |
+| Known polish | Todo | IPL franchise renames show as separate teams; Hundred skipped (5-ball sets) |
+
 ## Decisions and deviations
 
 - npm workspaces instead of pnpm (pnpm not installed; nothing depends on it).
