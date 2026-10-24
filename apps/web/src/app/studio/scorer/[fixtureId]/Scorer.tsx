@@ -57,19 +57,23 @@ function Box({ children }: { children: React.ReactNode }) {
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false);
   const [err, setErr] = useState<string | null>(null);
   return (
     <form
       className="sc-box"
       onSubmit={async (e) => {
         e.preventDefault();
-        const { error } = await supabase()!.auth.signInWithPassword({ email, password });
-        setErr(error?.message ?? null);
+        const { error } = await supabase()!.auth.signInWithPassword({ email: email.trim().toLowerCase(), password });
+        setErr(error ? (error.message === "Invalid login credentials" ? "Email or password doesn’t match. Tap “show” to check what you typed." : error.message) : null);
       }}
     >
       <p className="label">Scorer sign-in</p>
-      <input className="sc-input" type="email" autoComplete="username" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-      <input className="sc-input" type="password" autoComplete="current-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+      <input className="sc-input" type="email" inputMode="email" autoCapitalize="none" autoCorrect="off" spellCheck={false} autoComplete="username" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+      <div className="sc-row" style={{ marginTop: 0, flexWrap: "nowrap" }}>
+        <input className="sc-input" type={show ? "text" : "password"} autoCapitalize="none" autoCorrect="off" spellCheck={false} autoComplete="current-password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+        <button type="button" className="sc-btn" style={{ flex: "0 0 auto" }} onClick={() => setShow((s) => !s)}>{show ? "hide" : "show"}</button>
+      </div>
       <button className="sc-btn sc-primary">Sign in</button>
       {err && <p className="sc-err">{err}</p>}
     </form>
