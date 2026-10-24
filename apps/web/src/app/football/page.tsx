@@ -4,10 +4,10 @@ import { FdCredit, LeagueTable } from "@/components/football/FdBits";
 import { FOOTBALL, isNone, standings, totalTable } from "@/lib/football";
 
 export const metadata: Metadata = { title: "Football", description: "Premier League, Champions League, La Liga, Serie A, Bundesliga, Ligue 1, World Cup and Euros: tables, fixtures, results and top scorers." };
-export const revalidate = 1800;
+export const revalidate = 600;
 
 export default async function Football() {
-  // Eight requests at most, inside the free plan's 10 a minute; cached for 30 minutes.
+  // Eight requests at most, inside the free plan's 10 a minute; good data cached 30 minutes, page re-checked every 10.
   const tables = await Promise.all(FOOTBALL.map(async (c) => ({ c, s: await standings(c.code) })));
   const anyData = tables.some((t) => t.s && !isNone(t.s));
 
