@@ -17,7 +17,7 @@ export interface CricsheetMatch {
       result?: string;
       eliminator?: string;
     };
-    overs: number;
+    overs?: number;
     player_of_match?: string[];
     players: Record<string, string[]>;
     registry: { people: Record<string, string> };
@@ -30,7 +30,7 @@ export interface CricsheetMatch {
     team: string;
     super_over?: boolean;
     target?: { overs: number; runs: number };
-    overs: {
+    overs?: {
       over: number;
       deliveries: {
         batter: string;
@@ -49,6 +49,8 @@ export interface ParseContext {
   seasonIdByCricsheet: Map<string, string>;
   /** Fallback when Cricsheet uses a season label we have not seen yet. */
   seasonIdByYear?: Map<number, string>;
+  /** Any competition: team id = slug of the name, season id = Cricsheet season label. */
+  open?: boolean;
 }
 
 export interface ParsedMatch {
@@ -70,7 +72,7 @@ export function parseCricsheet(id: string, raw: CricsheetMatch, checksum: string
   const people = info.registry.people;
 
   const team = (name: string): TeamId => {
-    const t = ctx.teamIdByAlias.get(name);
+    const t = ctx.teamIdByAlias.get(name) ?? (ctx.open ? slug(name) : undefined);
     if (!t) throw new Error(`[${id}] unknown team name "${name}" — add it as an alias in data/teams.json`);
     return t;
   };
@@ -81,7 +83,7 @@ export function parseCricsheet(id: string, raw: CricsheetMatch, checksum: string
     return r;
   };
 
-  const seasonId = ctx.seasonIdByCricsheet.get(info.season) ?? ctx.seasonIdByYear?.get(Number(info.dates[0]!.slice(0, 4)));
+  const seasonId = (ctx.open ? String(info.season) : undefined) ?? ctx.seasonIdByCricsheet.get(String(info.season)) ?? ctx.seasonIdByYear?.get(Number(info.dates[0]!.slice(0, 4)));
   if (!seasonId) throw new Error(`[${id}] unknown season "${info.season}" (${info.dates[0]}) — add it to data/seasons.json`);
   if (info.balls_per_over !== 6) warnings.push(`balls_per_over is ${info.balls_per_over}`);
 
@@ -93,7 +95,7 @@ export function parseCricsheet(id: string, raw: CricsheetMatch, checksum: string
     const isSuperOver = inn.super_over === true;
     let seq = 0;
     const deliveries: Delivery[] = [];
-    for (const over of inn.overs) {
+    for (const over of inn.overs ?? []) {
       for (const d of over.deliveries) {
         const x = d.extras ?? {};
         deliveries.push({
@@ -116,8 +118,11 @@ export function parseCricsheet(id: string, raw: CricsheetMatch, checksum: string
         if (d.runs.batter + d.runs.extras !== d.runs.total) warnings.push(`innings ${idx + 1} over ${over.over}: runs do not sum to total`);
       }
     }
-    const oversLimit = isSuperOver ? 1 : (inn.target?.overs ?? info.overs);
-    if (!isSuperOver && inn.target && inn.target.overs !== info.overs) warnings.push(`innings ${idx + 1}: revised target ${inn.target.runs} in ${inn.target.overs} overs`);
+    // Revised targets use cricket notation: 14.4 = 14 overs 4 balls = 88 balls,
+    // stored as true overs (88 / 6) so oversLimit * 6 is the exact ball count.
+    const notation = (o: number) => (Math.floor(o) * 6 + Math.round((o - Math.floor(o)) * 10)) / 6;
+    const oversLimit = isSuperOver ? 1 : inn.target?.overs ? notation(inn.target.overs) : (info.overs ?? 0); // 0 = unlimited (Tests)
+    if (!isSuperOver && inn.target?.overs && info.overs && inn.target.overs !== info.overs) warnings.push(`innings ${idx + 1}: revised target ${inn.target.runs} in ${inn.target.overs} overs`);
     return { battingTeam, bowlingTeam: other(battingTeam), isSuperOver, oversLimit, target: inn.target ?? null, deliveries };
   });
 
@@ -126,6 +131,7 @@ export function parseCricsheet(id: string, raw: CricsheetMatch, checksum: string
   if (o.winner) outcome = { type: "win", winner: team(o.winner), by: { runs: o.by?.runs, wickets: o.by?.wickets }, method: o.method ?? null };
   else if (o.result === "tie") outcome = { type: "tie", superOverWinner: o.eliminator ? team(o.eliminator) : null };
   else if (o.result === "no result") outcome = { type: "no-result" };
+  else if (o.result === "draw") outcome = { type: "draw" };
   else outcome = { type: "requires-review", note: `unrecognised outcome ${JSON.stringify(o)}` };
 
   const stageName = info.event?.stage;
@@ -171,3 +177,5 @@ export function parseCricsheet(id: string, raw: CricsheetMatch, checksum: string
   };
   return { match, players, warnings };
 }
+
+export const slug = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");

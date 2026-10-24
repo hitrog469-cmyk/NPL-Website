@@ -91,6 +91,7 @@ export type MatchOutcome =
   | { type: "win"; winner: TeamId; by: { runs?: number; wickets?: number }; method: string | null }
   | { type: "tie"; superOverWinner: TeamId | null }
   | { type: "no-result" }
+  | { type: "draw" }
   | { type: "abandoned" }
   | { type: "requires-review"; note: string };
 

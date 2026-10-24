@@ -1,0 +1,385 @@
+[
+ {
+  "id": "ipl",
+  "name": "Indian Premier League",
+  "short": "IPL",
+  "format": "T20",
+  "kind": "league",
+  "coverage": {
+   "matches": 1243,
+   "first": "2008-04-18",
+   "last": "2026-05-31"
+  },
+  "latest": {
+   "id": "1535465",
+   "date": "2026-05-31",
+   "season": "2026",
+   "venue": "Narendra Modi Stadium, Ahmedabad",
+   "stage": "final",
+   "teams": [
+    "Gujarat Titans",
+    "Royal Challengers Bengaluru"
+   ],
+   "innings": [
+    {
+     "team": "Gujarat Titans",
+     "runs": 155,
+     "wickets": 8,
+     "overs": "20",
+     "allOut": false
+    },
+    {
+     "team": "Royal Challengers Bengaluru",
+     "runs": 161,
+     "wickets": 5,
+     "overs": "18",
+     "allOut": false
+    }
+   ],
+   "winner": "Royal Challengers Bengaluru",
+   "result": "Royal Challengers Bengaluru won by 5 wickets"
+  }
+ },
+ {
+  "id": "t20i",
+  "name": "T20 Internationals",
+  "short": "T20I",
+  "format": "T20",
+  "kind": "international",
+  "coverage": {
+   "matches": 3627,
+   "first": "2005-02-17",
+   "last": "2026-10-14"
+  },
+  "latest": {
+   "id": "1554582",
+   "date": "2026-10-14",
+   "season": "2026/27",
+   "venue": "YSD-UKM Cricket Oval, Bangi",
+   "stage": "league",
+   "teams": [
+    "Saudi Arabia",
+    "Maldives"
+   ],
+   "innings": [
+    {
+     "team": "Saudi Arabia",
+     "runs": 194,
+     "wickets": 5,
+     "overs": "20",
+     "allOut": false
+    },
+    {
+     "team": "Maldives",
+     "runs": 69,
+     "wickets": 10,
+     "overs": "17.1",
+     "allOut": true
+    }
+   ],
+   "winner": "Saudi Arabia",
+   "result": "Saudi Arabia won by 125 runs"
+  }
+ },
+ {
+  "id": "bbl",
+  "name": "Big Bash League",
+  "short": "BBL",
+  "format": "T20",
+  "kind": "league",
+  "coverage": {
+   "matches": 662,
+   "first": "2011-12-16",
+   "last": "2026-01-25"
+  },
+  "latest": {
+   "id": "1493281",
+   "date": "2026-01-25",
+   "season": "2025/26",
+   "venue": "Perth Stadium",
+   "stage": "final",
+   "teams": [
+    "Sydney Sixers",
+    "Perth Scorchers"
+   ],
+   "innings": [
+    {
+     "team": "Sydney Sixers",
+     "runs": 132,
+     "wickets": 10,
+     "overs": "20",
+     "allOut": true
+    },
+    {
+     "team": "Perth Scorchers",
+     "runs": 133,
+     "wickets": 4,
+     "overs": "17.3",
+     "allOut": false
+    }
+   ],
+   "winner": "Perth Scorchers",
+   "result": "Perth Scorchers won by 6 wickets"
+  }
+ },
+ {
+  "id": "psl",
+  "name": "Pakistan Super League",
+  "short": "PSL",
+  "format": "T20",
+  "kind": "league",
+  "coverage": {
+   "matches": 357,
+   "first": "2016-02-04",
+   "last": "2026-05-03"
+  },
+  "latest": {
+   "id": "1527595",
+   "date": "2026-05-03",
+   "season": "2026",
+   "venue": "Gaddafi Stadium, Lahore",
+   "stage": "final",
+   "teams": [
+    "Hyderabad Kingsmen",
+    "Peshawar Zalmi"
+   ],
+   "innings": [
+    {
+     "team": "Hyderabad Kingsmen",
+     "runs": 129,
+     "wickets": 10,
+     "overs": "18",
+     "allOut": true
+    },
+    {
+     "team": "Peshawar Zalmi",
+     "runs": 130,
+     "wickets": 5,
+     "overs": "15.2",
+     "allOut": false
+    }
+   ],
+   "winner": "Peshawar Zalmi",
+   "result": "Peshawar Zalmi won by 5 wickets"
+  }
+ },
+ {
+  "id": "cpl",
+  "name": "Caribbean Premier League",
+  "short": "CPL",
+  "format": "T20",
+  "kind": "league",
+  "coverage": {
+   "matches": 445,
+   "first": "2013-07-30",
+   "last": "2026-09-20"
+  },
+  "latest": {
+   "id": "1534217",
+   "date": "2026-09-20",
+   "season": "2026",
+   "venue": "Kensington Oval",
+   "stage": "final",
+   "teams": [
+    "Jamaica Kingsmen",
+    "Antigua and Barbuda Falcons"
+   ],
+   "innings": [
+    {
+     "team": "Jamaica Kingsmen",
+     "runs": 170,
+     "wickets": 9,
+     "overs": "20",
+     "allOut": false
+    },
+    {
+     "team": "Antigua and Barbuda Falcons",
+     "runs": 173,
+     "wickets": 2,
+     "overs": "16.4",
+     "allOut": false
+    }
+   ],
+   "winner": "Antigua and Barbuda Falcons",
+   "result": "Antigua and Barbuda Falcons won by 8 wickets"
+  }
+ },
+ {
+  "id": "sa20",
+  "name": "SA20",
+  "short": "SA20",
+  "format": "T20",
+  "kind": "league",
+  "coverage": {
+   "matches": 130,
+   "first": "2023-01-10",
+   "last": "2026-01-25"
+  },
+  "latest": {
+   "id": "1494286",
+   "date": "2026-01-25",
+   "season": "2025/26",
+   "venue": "Newlands, Cape Town",
+   "stage": "final",
+   "teams": [
+    "Pretoria Capitals",
+    "Sunrisers Eastern Cape"
+   ],
+   "innings": [
+    {
+     "team": "Pretoria Capitals",
+     "runs": 158,
+     "wickets": 7,
+     "overs": "20",
+     "allOut": false
+    },
+    {
+     "team": "Sunrisers Eastern Cape",
+     "runs": 162,
+     "wickets": 4,
+     "overs": "19.2",
+     "allOut": false
+    }
+   ],
+   "winner": "Sunrisers Eastern Cape",
+   "result": "Sunrisers Eastern Cape won by 6 wickets"
+  }
+ },
+ {
+  "id": "ilt20",
+  "name": "International League T20",
+  "short": "ILT20",
+  "format": "T20",
+  "kind": "league",
+  "coverage": {
+   "matches": 134,
+   "first": "2023-01-13",
+   "last": "2026-01-04"
+  },
+  "latest": {
+   "id": "1501351",
+   "date": "2026-01-04",
+   "season": "2025/26",
+   "venue": "Dubai International Cricket Stadium",
+   "stage": "final",
+   "teams": [
+    "Desert Vipers",
+    "MI Emirates"
+   ],
+   "innings": [
+    {
+     "team": "Desert Vipers",
+     "runs": 182,
+     "wickets": 4,
+     "overs": "20",
+     "allOut": false
+    },
+    {
+     "team": "MI Emirates",
+     "runs": 136,
+     "wickets": 10,
+     "overs": "18.3",
+     "allOut": true
+    }
+   ],
+   "winner": "Desert Vipers",
+   "result": "Desert Vipers won by 46 runs"
+  }
+ },
+ {
+  "id": "odi",
+  "name": "One-Day Internationals",
+  "short": "ODI",
+  "format": "ODI",
+  "kind": "international",
+  "coverage": {
+   "matches": 2596,
+   "first": "2002-06-27",
+   "last": "2026-10-13"
+  },
+  "latest": {
+   "id": "1554417",
+   "date": "2026-10-13",
+   "season": "2026/27",
+   "venue": "Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1)",
+   "stage": "league",
+   "teams": [
+    "Nepal",
+    "Oman"
+   ],
+   "innings": [
+    {
+     "team": "Nepal",
+     "runs": 263,
+     "wickets": 8,
+     "overs": "50",
+     "allOut": false
+    },
+    {
+     "team": "Oman",
+     "runs": 150,
+     "wickets": 10,
+     "overs": "40",
+     "allOut": true
+    }
+   ],
+   "winner": "Nepal",
+   "result": "Nepal won by 113 runs"
+  }
+ },
+ {
+  "id": "test",
+  "name": "Test cricket",
+  "short": "Tests",
+  "format": "Test",
+  "kind": "international",
+  "coverage": {
+   "matches": 896,
+   "first": "2001-12-19",
+   "last": "2026-10-09"
+  },
+  "latest": {
+   "id": "1525659",
+   "date": "2026-10-09",
+   "season": "2026/27",
+   "venue": "Kingsmead, Durban",
+   "stage": "league",
+   "teams": [
+    "Australia",
+    "South Africa"
+   ],
+   "innings": [
+    {
+     "team": "Australia",
+     "runs": 390,
+     "wickets": 10,
+     "overs": "137.2",
+     "allOut": true
+    },
+    {
+     "team": "South Africa",
+     "runs": 284,
+     "wickets": 10,
+     "overs": "78",
+     "allOut": true
+    },
+    {
+     "team": "Australia",
+     "runs": 314,
+     "wickets": 6,
+     "overs": "58",
+     "allOut": false
+    },
+    {
+     "team": "South Africa",
+     "runs": 206,
+     "wickets": 10,
+     "overs": "86.5",
+     "allOut": true
+    }
+   ],
+   "winner": "Australia",
+   "result": "Australia won by 214 runs"
+  }
+ }
+]

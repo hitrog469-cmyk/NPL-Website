@@ -115,7 +115,7 @@ export function aggregate(matches: Match[]): Aggregates {
         wickets: card.wickets,
         legalBalls: card.legalBalls,
         allOut: card.allOut,
-        completed: card.allOut || card.legalBalls === card.oversLimit * 6,
+        completed: card.allOut || (card.oversLimit > 0 && card.legalBalls === card.oversLimit * 6),
         ref,
       });
 

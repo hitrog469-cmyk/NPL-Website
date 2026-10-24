@@ -75,6 +75,8 @@ export function resultLine(m: Match): string {
       return o.superOverWinner ? `Match tied · ${team(o.superOverWinner).name} won the Super Over` : "Match tied";
     case "no-result":
       return "No result";
+    case "draw":
+      return "Match drawn";
     case "abandoned":
       return "Abandoned";
     case "requires-review":

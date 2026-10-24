@@ -192,7 +192,7 @@ export function reconcile(card: InningsScorecard): string[] {
   if (bowlRuns + nonBowler !== card.runs) errors.push(`bowler runs ${bowlRuns} + byes/lb/pen ${nonBowler} != total ${card.runs}`);
   const bowlBalls = card.bowlers.reduce((s, b) => s + b.legalBalls, 0);
   if (bowlBalls !== card.legalBalls) errors.push(`bowler balls ${bowlBalls} != legal balls ${card.legalBalls}`);
-  if (card.legalBalls > card.oversLimit * 6) errors.push(`legal balls ${card.legalBalls} exceed ${card.oversLimit} overs`);
+  if (card.oversLimit > 0 && card.legalBalls > card.oversLimit * 6) errors.push(`legal balls ${card.legalBalls} exceed ${card.oversLimit} overs`);
   if (card.wickets > 10) errors.push(`wickets ${card.wickets} > 10`);
   const outs = card.batters.filter((b) => b.status === "out").length;
   if (outs !== card.wickets) errors.push(`dismissed batters ${outs} != wickets ${card.wickets}`);
