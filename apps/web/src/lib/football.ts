@@ -89,7 +89,10 @@ async function fd<T>(path: string, revalidate: number, slot: string = path): Pro
           return json;
         }
         // 404 = nothing published for this competition right now (e.g. a finished tournament).
-        if (res.status === 404) return NONE as T;
+        if (res.status === 404) {
+          await store()?.from("feed_cache").upsert({ key: `football:${slot}`, payload: NONE, fetched_at: new Date().toISOString() });
+          return NONE as T;
+        }
         if (res.status !== 400 || attempt === 5) throw new Error(`HTTP ${res.status}`);
         await new Promise((r) => setTimeout(r, 700 * attempt));
       }
