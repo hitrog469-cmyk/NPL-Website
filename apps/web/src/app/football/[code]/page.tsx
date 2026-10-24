@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Crest, FdCredit, LeagueTable, MatchLine, Unavailable } from "@/components/football/FdBits";
-import { footballComp, isLive, matchesAround, scorers, standings, totalTable } from "@/lib/football";
+import { footballComp, isLive, isNone, matchesAround, scorers, standings, totalTable } from "@/lib/football";
 import { matchDate } from "@/lib/format";
 
 // Not prebuilt: each page is rendered on first visit and then refreshed every
@@ -23,7 +23,9 @@ export default async function FootballCompetition({ params }: { params: Promise<
   if (!c) notFound();
   const [s, m, sc] = await Promise.all([standings(c.code), matchesAround(c.code), scorers(c.code)]);
   const groups = totalTable(s);
-  const all = m?.matches ?? [];
+  const all = m && !isNone(m) ? m.matches : [];
+  const season = s && !isNone(s) ? s.season : null;
+  const scorerList = sc && !isNone(sc) ? sc.scorers : [];
   const live = all.filter(isLive);
   const results = all.filter((x) => x.status === "FINISHED" || x.status === "AWARDED").slice(-12).reverse();
   const fixtures = all.filter((x) => x.status === "SCHEDULED" || x.status === "TIMED" || x.status === "POSTPONED").slice(0, 12);
@@ -34,7 +36,8 @@ export default async function FootballCompetition({ params }: { params: Promise<
         <div className="wrap page-head">
           <p className="label muted"><Link href="/football">Football</Link> · {c.area}</p>
           <h1 className="display">{c.short}</h1>
-          {s && <p className="lead muted">Season {s.season.startDate.slice(0, 4)}{s.season.endDate.slice(0, 4) !== s.season.startDate.slice(0, 4) ? `/${s.season.endDate.slice(2, 4)}` : ""}{s.season.currentMatchday ? ` · matchday ${s.season.currentMatchday}` : ""}</p>}
+          {season && <p className="lead muted">Season {season.startDate.slice(0, 4)}{season.endDate.slice(0, 4) !== season.startDate.slice(0, 4) ? `/${season.endDate.slice(2, 4)}` : ""}{season.currentMatchday ? ` · matchday ${season.currentMatchday}` : ""}</p>}
+          {isNone(s) && isNone(m) && <p className="lead muted">Not in progress right now. Tables and fixtures return when the next edition starts.</p>}
           <nav className="jump" aria-label="On this page">
             <a href="#matches">Matches</a>
             <a href="#table">{c.cup ? "Groups" : "Table"}</a>
@@ -65,7 +68,7 @@ export default async function FootballCompetition({ params }: { params: Promise<
       <section className="paper section" id="table">
         <div className="wrap">
           <div className="sec-head"><h2 className="display">{c.cup ? "Groups & standings" : "Table"}</h2></div>
-          {!s ? <Unavailable what="The table" /> : groups.length === 0 ? <p className="muted">No standings published for this stage.</p> : (
+          {!s ? <Unavailable what="The table" /> : groups.length === 0 ? <p className="muted">{isNone(s) ? "No table: this competition is not in progress." : "No standings published for this stage."}</p> : (
             <div className={groups.length > 1 ? "fd-groups" : ""}>
               {groups.map((g) => (
                 <div key={`${g.stage}-${g.group}`}>
@@ -81,12 +84,12 @@ export default async function FootballCompetition({ params }: { params: Promise<
       <section className="bone section" id="scorers">
         <div className="wrap">
           <div className="sec-head"><h2 className="display">Top scorers</h2></div>
-          {!sc ? <Unavailable what="Top scorers" /> : (
+          {!sc ? <Unavailable what="Top scorers" /> : scorerList.length === 0 ? <p className="muted">No scorers published right now.</p> : (
             <div className="table-wrap">
               <table className="data">
                 <thead><tr><th className="l">#</th><th className="l">Player</th><th className="l">Team</th><th>Played</th><th>Goals</th><th>Assists</th><th>Pens</th></tr></thead>
                 <tbody>
-                  {sc.scorers.map((p, i) => (
+                  {scorerList.map((p, i) => (
                     <tr key={p.player.id} className={i === 0 ? "top" : ""}>
                       <td className="l rank">{i + 1}</td>
                       <td className="l strong">{p.player.name}<span className="sub">{p.player.nationality ?? ""}</span></td>

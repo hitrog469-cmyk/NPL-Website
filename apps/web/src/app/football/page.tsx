@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FdCredit, LeagueTable } from "@/components/football/FdBits";
-import { FOOTBALL, standings, totalTable } from "@/lib/football";
+import { FOOTBALL, isNone, standings, totalTable } from "@/lib/football";
 
 export const metadata: Metadata = { title: "Football", description: "Premier League, Champions League, La Liga, Serie A, Bundesliga, Ligue 1, World Cup and Euros: tables, fixtures, results and top scorers." };
 export const revalidate = 1800;
@@ -9,7 +9,7 @@ export const revalidate = 1800;
 export default async function Football() {
   // Eight requests at most, inside the free plan's 10 a minute; cached for 30 minutes.
   const tables = await Promise.all(FOOTBALL.map(async (c) => ({ c, s: await standings(c.code) })));
-  const anyData = tables.some((t) => t.s);
+  const anyData = tables.some((t) => t.s && !isNone(t.s));
 
   return (
     <>
@@ -39,7 +39,7 @@ export default async function Football() {
                   {rows.length ? (
                     <LeagueTable rows={rows} compact />
                   ) : (
-                    <span className="muted">{s ? (groups.length > 1 ? `${groups.length} groups · open for tables and fixtures` : "Not in season · open for results") : "Feed unavailable"}</span>
+                    <span className="muted">{isNone(s) ? "Not in progress" : s ? (groups.length > 1 ? `${groups.length} groups · open for tables and fixtures` : "Not in season · open for results") : "Feed unavailable"}</span>
                   )}
                 </Link>
               );

@@ -70,6 +70,8 @@ async function fd<T>(path: string, revalidate: number): Promise<T | null> {
       for (let attempt = 1; ; attempt++) {
         const res = await fetch(`https://api.football-data.org/v4/${path}`, { headers: { "X-Auth-Token": key }, cache: "no-store" });
         if (res.ok) return (await res.json()) as T;
+        // 404 = nothing published for this competition right now (e.g. a finished tournament).
+        if (res.status === 404) return NONE as T;
         if (res.status !== 400 || attempt === 3) throw new Error(`HTTP ${res.status}`);
         await new Promise((r) => setTimeout(r, 1200 * attempt));
       }
@@ -85,6 +87,10 @@ async function fd<T>(path: string, revalidate: number): Promise<T | null> {
   }
 }
 
+/** Marker for "the feed answered: nothing here", as opposed to null = "feed unavailable". */
+export const NONE = { none: true } as const;
+export const isNone = (x: unknown) => !!x && typeof x === "object" && "none" in x;
+
 const day = (offset: number) => new Date(Date.now() + offset * 86_400_000).toISOString().slice(0, 10);
 
 export const standings = (code: string) => fd<FdStandings>(`competitions/${code}/standings`, 1800);
@@ -93,4 +99,4 @@ export const scorers = (code: string) => fd<{ scorers: FdScorer[] }>(`competitio
 export const matchesAround = (code: string) => fd<{ matches: FdMatch[] }>(`competitions/${code}/matches?dateFrom=${day(-21)}&dateTo=${day(21)}`, 600);
 
 export const isLive = (m: FdMatch) => m.status === "IN_PLAY" || m.status === "PAUSED";
-export const totalTable = (s: FdStandings | null) => s?.standings.filter((x) => x.type === "TOTAL") ?? [];
+export const totalTable = (s: FdStandings | null) => (s && !isNone(s) ? s.standings.filter((x) => x.type === "TOTAL") : []);
