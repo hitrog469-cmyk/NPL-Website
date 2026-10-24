@@ -11,6 +11,9 @@ export default function ScorerIndex() {
       <div className="wrap">
         <p className="label muted">Studio · private</p>
         <h1 className="display" style={{ fontSize: "3rem", marginBottom: 24 }}>Scorer</h1>
+        <Link href="/studio/scorer/rehearsal" className="sc-btn sc-primary" style={{ display: "inline-block", marginBottom: 24, textDecoration: "none" }}>
+          Practise: rehearsal match →
+        </Link>
         <ul className="match-list">
           {s3Fixtures().fixtures.map((f) => {
             const k = kickoff(f.startsAtUtc);
