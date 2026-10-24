@@ -181,7 +181,21 @@ export function upcomingFixtures(now = new Date()) {
   return s3Fixtures().fixtures.filter((f) => f.status !== "cancelled" && Date.parse(f.startsAtUtc) > cutoff);
 }
 
-export const fixtureLabel = (f: Fixture) => (f.stage === "league" ? `Match ${f.matchNumber}` : STAGE_LABEL[f.stage]);
+/** Practice fixture for the scorer. Never shown in schedules, leaderboards or the live banner. */
+export const REHEARSAL: Fixture = {
+  id: "rehearsal",
+  matchNumber: null,
+  stage: "league",
+  teams: ["lumbini-lions", "sudurpaschim-royals"],
+  startsAtUtc: "2030-01-01T10:45:00.000Z",
+  venue: "Rehearsal",
+  status: "scheduled",
+};
+
+/** Fixtures that have a live page and a scorer page. */
+export const scorableFixtures = () => [...s3Fixtures().fixtures.filter((f) => f.teams), REHEARSAL];
+
+export const fixtureLabel = (f: Fixture) => f.id === REHEARSAL.id ? "Rehearsal (not a real match)" : (f.stage === "league" ? `Match ${f.matchNumber}` : STAGE_LABEL[f.stage]);
 
 export function teamFixtures(teamId: string) {
   return s3Fixtures().fixtures.filter((f) => f.teams?.includes(teamId));

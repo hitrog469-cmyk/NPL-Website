@@ -40,6 +40,9 @@ export function NextMatchBoard({ fixture }: { fixture: Fixture }) {
           <div className="nm-centre">
             <span className="display nm-time num">{k.time}</span>
             <span className="label">{matchDate(k.date, { weekday: true, year: false })} · Nepal time</span>
+            {fixture.teams && (
+              <Link href={`/live/${fixture.id}`} className="nm-cta">Predict &amp; follow live →</Link>
+            )}
           </div>
         </div>
       </div>

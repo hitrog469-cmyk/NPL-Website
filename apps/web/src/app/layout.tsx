@@ -4,6 +4,7 @@ import { Masthead } from "@/components/Masthead";
 import { Footer } from "@/components/Footer";
 import { SITE } from "@/lib/site";
 import "./globals.css";
+import "./live.css";
 
 // All three families are SIL Open Font License; next/font self-hosts them at build.
 const display = Big_Shoulders({ subsets: ["latin"], weight: ["700", "800"], variable: "--f-display", display: "swap" });

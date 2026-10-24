@@ -2,7 +2,8 @@ import Link from "next/link";
 import { NavLinks } from "./NavLinks";
 import { SITE } from "@/lib/site";
 import { daysBetween, matchDate, todayKathmandu } from "@/lib/format";
-import { s3Season } from "@/lib/data";
+import { s3Fixtures, s3Season, team } from "@/lib/data";
+import { LiveNow } from "./live/LiveNow";
 
 export function Masthead() {
   const today = todayKathmandu();
@@ -32,6 +33,7 @@ export function Masthead() {
           <NavLinks />
         </div>
       </div>
+      <LiveNow labels={Object.fromEntries(s3Fixtures().fixtures.filter((f) => f.teams).map((f) => [f.id, `${team(f.teams![0]).shortName} v ${team(f.teams![1]).shortName}`]))} />
     </header>
   );
 }

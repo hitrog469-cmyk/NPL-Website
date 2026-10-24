@@ -10,6 +10,7 @@ const LINKS = [
   { href: "/table", label: "Table" },
   { href: "/teams", label: "Teams" },
   { href: "/records", label: "Records" },
+  { href: "/fan-zone", label: "Fan Zone" },
   { href: "/data-sources", label: "Data" },
 ];
 

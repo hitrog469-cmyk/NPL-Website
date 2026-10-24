@@ -35,7 +35,11 @@ export function FixtureList({ fixtures }: { fixtures: Fixture[] }) {
                       <span className="muted">Teams decided by the league stage</span>
                     )}
                   </span>
-                  <span className="label muted fx-no">{fixtureLabel(f)}</span>
+                  {f.teams ? (
+                    <Link href={`/live/${f.id}`} className="label fx-no fx-go">{fixtureLabel(f)} · Live &amp; predict →</Link>
+                  ) : (
+                    <span className="label muted fx-no">{fixtureLabel(f)}</span>
+                  )}
                 </li>
               );
             })}
