@@ -26,7 +26,17 @@ const email = process.argv[2];
 
 async function main() {
   if (!env.SUPABASE_DB_URL) throw new Error("SUPABASE_DB_URL missing in apps/web/.env.local");
-  const client = new pg.Client({ connectionString: env.SUPABASE_DB_URL, ssl: { rejectUnauthorized: false } });
+  // Split by hand (password = everything up to the last "@") so unencoded special characters still work.
+  const m = env.SUPABASE_DB_URL.match(/^postgres(?:ql)?:\/\/([^:]+):(.*)@([^@/:]+):(\d+)\/([^?]+)/);
+  if (!m) throw new Error("SUPABASE_DB_URL is not in postgresql://user:password@host:port/db form");
+  const [, user, rawPassword, host, port, database] = m;
+  let password = rawPassword!;
+  try {
+    password = decodeURIComponent(password);
+  } catch {
+    /* not percent-encoded: use as typed */
+  }
+  const client = new pg.Client({ user, password, host, port: Number(port), database, ssl: { rejectUnauthorized: false } });
   await client.connect();
 
   for (const f of readdirSync("supabase/migrations").filter((x) => x.endsWith(".sql")).sort()) {
