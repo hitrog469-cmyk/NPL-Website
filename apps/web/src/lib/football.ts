@@ -64,9 +64,15 @@ async function fd<T>(path: string, revalidate: number): Promise<T | null> {
   if (!key) return null;
   const load = unstable_cache(
     async () => {
-      const res = await fetch(`https://api.football-data.org/v4/${path}`, { headers: { "X-Auth-Token": key }, cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      return (await res.json()) as T;
+      // A new token reaches the feed's servers gradually; meanwhile some
+      // requests get a 400 "invalid token" that doesn't count against the
+      // rate limit, so retry a couple of times before giving up.
+      for (let attempt = 1; ; attempt++) {
+        const res = await fetch(`https://api.football-data.org/v4/${path}`, { headers: { "X-Auth-Token": key }, cache: "no-store" });
+        if (res.ok) return (await res.json()) as T;
+        if (res.status !== 400 || attempt === 3) throw new Error(`HTTP ${res.status}`);
+        await new Promise((r) => setTimeout(r, 1200 * attempt));
+      }
     },
     ["football-data", path],
     { revalidate, tags: ["football"] },
