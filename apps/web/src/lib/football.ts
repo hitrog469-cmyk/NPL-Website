@@ -1,5 +1,6 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 /**
  * football-data.org v4 (free plan). Licensed feed; we credit it on every page.
@@ -59,21 +60,38 @@ export interface FdScorer { player: { id: number; name: string; nationality: str
  * unstable_cache (which never stores a throw) and the caller gets null, so a
  * bad minute can't stick on the site for the whole revalidate window.
  */
-async function fd<T>(path: string, revalidate: number): Promise<T | null> {
+/** Server-only Supabase client (secret key) for the last-good copy in public.feed_cache. */
+function store(): SupabaseClient | null {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const secret = process.env.SUPABASE_SECRET_KEY;
+  return url && secret ? createClient(url, secret, { auth: { persistSession: false } }) : null;
+}
+
+/**
+ * Fetch one feed resource. Order of preference:
+ *   1. a fresh response (cached by Next for `revalidate` seconds),
+ *   2. the last good response saved in Supabase, from any earlier deploy,
+ *   3. null, which pages show as "unavailable".
+ * `slot` names the saved copy; it must not contain dates that change daily.
+ */
+async function fd<T>(path: string, revalidate: number, slot: string = path): Promise<T | null> {
   const key = process.env.FOOTBALL_DATA_KEY;
   if (!key) return null;
   const load = unstable_cache(
     async () => {
-      // A new token reaches the feed's servers gradually; meanwhile some
-      // requests get a 400 "invalid token" that doesn't count against the
-      // rate limit, so retry a couple of times before giving up.
+      // The feed rejects a share of requests with 400 "invalid token" even
+      // for a valid key; those don't count against the rate limit, so retry.
       for (let attempt = 1; ; attempt++) {
         const res = await fetch(`https://api.football-data.org/v4/${path}`, { headers: { "X-Auth-Token": key }, cache: "no-store" });
-        if (res.ok) return (await res.json()) as T;
+        if (res.ok) {
+          const json = (await res.json()) as T;
+          await store()?.from("feed_cache").upsert({ key: `football:${slot}`, payload: json, fetched_at: new Date().toISOString() });
+          return json;
+        }
         // 404 = nothing published for this competition right now (e.g. a finished tournament).
         if (res.status === 404) return NONE as T;
-        if (res.status !== 400 || attempt === 3) throw new Error(`HTTP ${res.status}`);
-        await new Promise((r) => setTimeout(r, 1200 * attempt));
+        if (res.status !== 400 || attempt === 5) throw new Error(`HTTP ${res.status}`);
+        await new Promise((r) => setTimeout(r, 700 * attempt));
       }
     },
     ["football-data", path],
@@ -82,8 +100,9 @@ async function fd<T>(path: string, revalidate: number): Promise<T | null> {
   try {
     return await load();
   } catch (e) {
-    console.warn(`football-data ${path}: ${e instanceof Error ? e.message : e}`);
-    return null;
+    console.warn(`football-data ${path}: ${e instanceof Error ? e.message : e}; using last good copy`);
+    const { data } = (await store()?.from("feed_cache").select("payload").eq("key", `football:${slot}`).maybeSingle()) ?? { data: null };
+    return (data?.payload as T) ?? null;
   }
 }
 
@@ -96,7 +115,7 @@ const day = (offset: number) => new Date(Date.now() + offset * 86_400_000).toISO
 export const standings = (code: string) => fd<FdStandings>(`competitions/${code}/standings`, 1800);
 export const scorers = (code: string) => fd<{ scorers: FdScorer[] }>(`competitions/${code}/scorers?limit=10`, 3600);
 /** Results from the last three weeks and fixtures for the next three. */
-export const matchesAround = (code: string) => fd<{ matches: FdMatch[] }>(`competitions/${code}/matches?dateFrom=${day(-21)}&dateTo=${day(21)}`, 600);
+export const matchesAround = (code: string) => fd<{ matches: FdMatch[] }>(`competitions/${code}/matches?dateFrom=${day(-21)}&dateTo=${day(21)}`, 600, `competitions/${code}/matches`);
 
 export const isLive = (m: FdMatch) => m.status === "IN_PLAY" || m.status === "PAUSED";
 export const totalTable = (s: FdStandings | null) => (s && !isNone(s) ? s.standings.filter((x) => x.type === "TOTAL") : []);
