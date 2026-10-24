@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { FdCredit, LeagueTable } from "@/components/football/FdBits";
+import { FOOTBALL, standings, totalTable } from "@/lib/football";
 
-export const metadata: Metadata = { title: "Football", description: "Premier League, Champions League, La Liga, Serie A, Bundesliga, Ligue 1, World Cup and Euros." };
+export const metadata: Metadata = { title: "Football", description: "Premier League, Champions League, La Liga, Serie A, Bundesliga, Ligue 1, World Cup and Euros: tables, fixtures, results and top scorers." };
+export const revalidate = 1800;
 
-/** Competitions we will cover, in the order Rohit chose. Filled from the football-data.org feed once connected. */
-export const FOOTBALL = [
-  { code: "PL", name: "Premier League", area: "England" },
-  { code: "CL", name: "UEFA Champions League", area: "Europe" },
-  { code: "PD", name: "La Liga", area: "Spain" },
-  { code: "SA", name: "Serie A", area: "Italy" },
-  { code: "BL1", name: "Bundesliga", area: "Germany" },
-  { code: "FL1", name: "Ligue 1", area: "France" },
-  { code: "WC", name: "FIFA World Cup", area: "World" },
-  { code: "EC", name: "UEFA European Championship", area: "Europe" },
-];
+export default async function Football() {
+  // Eight requests at most, inside the free plan's 10 a minute; cached for 30 minutes.
+  const tables = await Promise.all(FOOTBALL.map(async (c) => ({ c, s: await standings(c.code) })));
+  const anyData = tables.some((t) => t.s);
 
-export default function Football() {
   return (
     <>
       <section className="ink">
@@ -26,19 +22,30 @@ export default function Football() {
       </section>
       <section className="bone section">
         <div className="wrap">
-          <div className="notice" style={{ marginBottom: 32 }}>
-            <strong>Connecting the football feed.</strong>
-            <span className="muted">Tables, fixtures and results appear here as soon as our licensed data feed is switched on. Nothing below is placeholder data.</span>
+          {!anyData && (
+            <div className="notice" style={{ marginBottom: 32 }}>
+              <strong>Football feed unavailable right now.</strong>
+              <span className="muted">Tables appear here as soon as the feed responds. Nothing below is placeholder data.</span>
+            </div>
+          )}
+          <div className="fd-grid">
+            {tables.map(({ c, s }) => {
+              const groups = totalTable(s);
+              const rows = groups.length === 1 ? groups[0]!.table.slice(0, 4) : [];
+              return (
+                <Link key={c.code} href={`/football/${c.code.toLowerCase()}`} className="fd-card">
+                  <span className="label muted">{c.area}</span>
+                  <span className="display fd-card-name">{c.short}</span>
+                  {rows.length ? (
+                    <LeagueTable rows={rows} compact />
+                  ) : (
+                    <span className="muted">{s ? (groups.length > 1 ? `${groups.length} groups · open for tables and fixtures` : "Not in season · open for results") : "Feed unavailable"}</span>
+                  )}
+                </Link>
+              );
+            })}
           </div>
-          <div className="comp-grid">
-            {FOOTBALL.map((c) => (
-              <div key={c.code} className="comp-card comp-card--soon">
-                <span className="comp-short display">{c.code}</span>
-                <span className="comp-name">{c.name}</span>
-                <span className="label muted">{c.area}</span>
-              </div>
-            ))}
-          </div>
+          <FdCredit />
         </div>
       </section>
     </>
