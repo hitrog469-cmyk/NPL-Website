@@ -1,36 +1,40 @@
-# Supabase setup (10 minutes)
+# Supabase setup
 
-Supabase is the database behind predictions, quizzes, fan votes, sign-in and live scoring. The free plan is enough to start.
+Project: `mefiljkfaqumhsfxkegp` · URL `https://mefiljkfaqumhsfxkegp.supabase.co` · region Mumbai.
 
-## 1. Create the project
-1. Go to https://supabase.com and sign in with GitHub.
-2. **New project**:
-   - Name: `npl-data-desk`
-   - Database password: generate a strong one and save it in your password manager. You won't need to give it to anyone.
-   - Region: **South Asia (Mumbai)**, the closest to Nepal.
-   - Plan: Free.
-3. Wait about 2 minutes while it sets up.
+We use Supabase's **new API keys** (`sb_publishable_…` / `sb_secret_…`). The legacy JWT `anon` / `service_role` keys are not used and should be disabled.
 
-## 2. Copy three values
-Open **Project Settings → API Keys** (on some dashboards it's **Settings → API**):
-- **Project URL**, e.g. `https://abcd1234.supabase.co`
-- **Publishable key** (older dashboards call it `anon` `public`). This one is safe to be public.
-- **Secret key** (older dashboards: `service_role`). **Never share this one, including in chat.**
+## Keys
 
-## 3. Put them in Vercel
-Vercel → your project → **Settings → Environment Variables**. Add each for Production and Preview:
+| Key | Where it goes | Public? |
+| --- | --- | --- |
+| Project URL | `NEXT_PUBLIC_SUPABASE_URL` | yes |
+| Publishable key `sb_publishable_…` | `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | yes |
+| Secret key `sb_secret_…` | `SUPABASE_SECRET_KEY` | **never**: not in chat, GitHub, screenshots or the browser |
 
-| Name | Value |
+## If a secret key is ever exposed
+1. Dashboard → **Project Settings → API Keys → Secret keys** → **+ New secret key**, name it `vercel`.
+2. Put the new key in Vercel and `apps/web/.env.local`.
+3. On the old secret key's row → **⋯ → Delete**.
+4. Legacy keys: same page → **Legacy API Keys** tab → **Disable JWT-based API keys**. This kills the old `anon` and `service_role` keys.
+
+## Vercel environment variables
+Vercel → project **npl-website** → **Settings** (top bar) → **Environment Variables** (left menu).
+For each row: enter Key and Value, tick **Production** and **Preview**, then **Save**.
+
+| Key | Value |
 | --- | --- |
-| `NEXT_PUBLIC_SUPABASE_URL` | Project URL |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Publishable key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Secret key |
+| `NEXT_PUBLIC_SUPABASE_URL` | `https://mefiljkfaqumhsfxkegp.supabase.co` |
+| `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` | your `sb_publishable_…` |
+| `SUPABASE_SECRET_KEY` | your new `sb_secret_…`; tick **Sensitive** |
 
-## 4. Put them on your PC (for local testing)
-Copy `apps/web/.env.example` to `apps/web/.env.local` and fill in the same three values. The file is gitignored, so it never reaches GitHub.
+Then **Deployments → latest → ⋯ → Redeploy**, because env vars only apply to new builds.
 
-## 5. Tell me "Supabase done"
-Send me the **Project URL** only. I'll write the database tables and security rules as a migration file for you to run in **SQL Editor** (one paste, one click).
+## Local
+`apps/web/.env.local` (gitignored) holds the same three values.
+
+## Database
+Tables and security rules ship as SQL files in `supabase/migrations/`. Run each one in Dashboard → **SQL Editor** → paste → **Run**.
 
 ## Later: Google sign-in
-When the fan zone is ready we'll turn on Google sign-in under **Authentication → Sign In / Providers → Google**. That needs a Google Cloud OAuth client; I'll walk you through it at that point.
+Authentication → Sign In / Providers → Google. Needs a Google Cloud OAuth client; steps come with the fan zone.
