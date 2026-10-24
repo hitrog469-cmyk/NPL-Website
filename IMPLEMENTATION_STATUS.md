@@ -34,6 +34,19 @@ Cricsheet import → cricket-core → Records, Table and pre-season Home, plus M
 | Squads | Partial, unverified | From team sites. Biratnagar lists 6; Kathmandu from a fantasy app. Players in two squads: Shubh Kansakar (KY/JB), Kishore Mahato (LL/JB), Aakash Tripathi (LL/KG), Sachin Bhatta (SR/JB), Aasif Sheikh (LL/JB) |
 | Screenshot check | Done | 8 routes × 3 widths on the production build, clean |
 
+## Milestone 2b — live scoring & fans (24 Oct)
+
+| Item | Status | Evidence |
+| --- | --- | --- |
+| Supabase schema + RLS | Done | `npx tsx scripts/db-setup.ts <email>`: migration ok, 33 fixtures (32 + rehearsal), scorer added |
+| Security from the public key | Done | Read fixtures/live state: yes. Write balls or match state: blocked (42501 / 0 rows). Admins table: hidden. Pick for a non-playing team: rejected. Anonymous `is_admin`: false |
+| Live engine | Done | 48 tests incl. strike rotation, caught law, undo, tags, chases |
+| Realtime on production | Done | `scripts/rehearsal-check.ts https://npl-website-v4qu.vercel.app`, 3 runs: each ball on the public page in 81–189 ms, undo in 286–789 ms, no reload |
+| Race fix | Done | Out-of-order reloads could overwrite newer balls; reloads are now sequenced and re-run if a ball arrives mid-load |
+| Scorer UI on a phone | Not verified by me | Needs Rohit's login; rehearse at `/studio/scorer/rehearsal` |
+| Anonymous sign-ins | On | Enabled by Rohit in the dashboard |
+| Not built | — | Super Over scoring, win probability model, quizzes, ads, player photos |
+
 ## Decisions and deviations
 
 - npm workspaces instead of pnpm (pnpm not installed; nothing depends on it).
