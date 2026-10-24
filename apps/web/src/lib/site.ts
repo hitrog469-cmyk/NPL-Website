@@ -1,10 +1,15 @@
 /** Brand and feature switches. Rename the brand here and nowhere else. */
 export const SITE = {
-  name: "NPL Data Desk",
-  shortName: "NDD",
-  tagline: "Independent Nepal Premier League statistics",
-  independence: "Independent NPL statistics and creator platform; not an official league site.",
+  name: "Sports Sathi",
+  shortName: "SS",
+  tagline: "Independent cricket and football statistics",
+  independence: "Independent sports statistics and fan platform; not an official league or team site.",
   timezone: "Asia/Kathmandu",
+  /**
+   * The competition that leads the homepage. Change this when the focus moves
+   * (e.g. to the IPL in April); everything else stays one tab away.
+   */
+  featured: { sport: "cricket", id: "npl", label: "NPL 2026", name: "Nepal Premier League" },
 } as const;
 
 /**
@@ -16,7 +21,7 @@ export const FLAGS = {
   nepaliLabels: false, // awaiting Rohit's review of the NE dictionary
   teams: true,
   players: false,
-  liveScoring: false,
+  liveScoring: true,
   rewind: false,
   lab: false,
   studio: false,

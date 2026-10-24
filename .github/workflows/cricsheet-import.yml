@@ -1,4 +1,5 @@
-# Pulls new NPL matches from Cricsheet twice a day. If anything changed and
+# Pulls new NPL matches (raw) and refreshes the other competitions (compact
+# summaries) from Cricsheet twice a day. If anything changed and
 # every check passes, it commits the new files; Vercel then redeploys.
 # If a check fails (e.g. a new team spelling), nothing is committed and
 # GitHub emails the repo owner.
@@ -30,18 +31,23 @@ jobs:
 
       - run: npm ci
 
-      - name: Import from Cricsheet
+      - name: Import NPL from Cricsheet
         run: npm run import:cricsheet
+
+      - name: Refresh IPL, T20I, BBL, PSL, CPL, SA20, ILT20, ODI, Tests
+        run: npx tsx scripts/derive-cricket.ts
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
 
       - name: Anything new?
         id: diff
         run: |
-          if git diff --quiet -- data/cricsheet; then
+          if git diff --quiet -- data/cricsheet data/derived && [ -z "$(git ls-files --others --exclude-standard data/derived)" ]; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No new matches."
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
-            git diff --stat -- data/cricsheet
+            git diff --stat -- data/cricsheet data/derived
           fi
 
       - name: Verify every innings reconciles
@@ -61,7 +67,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cricsheet
+          git add data/cricsheet data/derived
           n=$(git diff --cached --name-only -- 'data/cricsheet/npl/*.json' | grep -v manifest | wc -l)
-          git commit -m "Cricsheet import: ${n} new or updated NPL match file(s)"
+          git commit -m "Cricsheet import: ${n} NPL match file(s), other competitions refreshed"
           git push

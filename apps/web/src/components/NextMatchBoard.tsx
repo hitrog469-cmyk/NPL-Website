@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import Link from "next/link";
 import type { Fixture } from "@npl/data";
 import { TeamBadge } from "@/components/TeamBadge";
@@ -5,22 +7,30 @@ import { Tag } from "@/components/Tag";
 import { fixtureLabel, team, teamHistory } from "@/lib/data";
 import { daysBetween, kickoff, matchDate, todayKathmandu } from "@/lib/format";
 
+/** Optional hero illustration: drop public/hero/featured.(webp|jpg|png) and it appears behind the board. */
+function heroImage(): string | null {
+  for (const ext of ["webp", "jpg", "png"]) if (existsSync(path.join(process.cwd(), "public", "hero", `featured.${ext}`))) return `/hero/featured.${ext}`;
+  return null;
+}
+
 /** The homepage confrontation: next fixture, both teams at full volume. */
 export function NextMatchBoard({ fixture }: { fixture: Fixture }) {
   const k = kickoff(fixture.startsAtUtc);
   const days = daysBetween(todayKathmandu(), k.date);
   const when = days <= 0 ? "Today" : days === 1 ? "Tomorrow" : `In ${days} days`;
   const [a, b] = fixture.teams ?? [null, null];
+  const hero = heroImage();
 
   return (
     <section className="ink nm" aria-labelledby="nm-title" style={a && b ? ({ "--a": team(a).colour, "--b": team(b).colour } as React.CSSProperties) : undefined}>
+      {hero && <div className="nm-hero" style={{ backgroundImage: `url(${hero})` }} aria-hidden />}
       <div className="nm-bands" aria-hidden><span /><span /></div>
       <div className="wrap nm-inner">
         <div className="nm-top">
           <p className="label">
-            <span className="nm-when">{when}</span> · Season 3 · {fixtureLabel(fixture)} · Kirtipur
+            <span className="nm-when">{when}</span> · NPL 2026 · {fixtureLabel(fixture)} · Kirtipur
           </p>
-          <Tag kind="official_confirmed">Schedule</Tag>
+          <span style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>{hero && <span className="tag">Illustration</span>}<Tag kind="official_confirmed">Schedule</Tag></span>
         </div>
         <h1 id="nm-title" className="sr-only">
           Next match: {a ? team(a).name : "TBA"} v {b ? team(b).name : "TBA"}

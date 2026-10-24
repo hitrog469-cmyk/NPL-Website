@@ -433,3 +433,13 @@ table.data .sub { display: block; font-size: var(--t-micro); color: var(--on-bon
 @media (min-width: 600px) { .squad { grid-template-columns: 1fr 1fr; column-gap: 32px; } }
 .squad li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule-bone); }
 .squad-name { font-weight: 700; }
+
+/* ---------- NPL sub-navigation ---------- */
+
+.subnav { background: var(--ink-2); border-bottom: 1px solid var(--rule-ink); }
+.subnav .wrap { display: flex; align-items: center; gap: 0; overflow-x: auto; scrollbar-width: none; }
+.subnav .wrap::-webkit-scrollbar { display: none; }
+.subnav-title { color: var(--signal); padding-right: 14px; white-space: nowrap; }
+.subnav a { padding: 9px 12px; color: var(--on-ink-muted); text-decoration: none; font-size: var(--t-small); font-weight: 600; white-space: nowrap; border-bottom: 2px solid transparent; }
+.subnav a:hover { color: var(--on-ink); }
+.subnav a[aria-current="page"] { color: var(--on-ink); border-bottom-color: var(--signal); }

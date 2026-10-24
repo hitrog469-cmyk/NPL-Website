@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { oversDisplay } from "@npl/cricket-core";
+import { AroundTheWorld } from "@/components/AroundTheWorld";
 import { FixtureList } from "@/components/FixtureList";
 import { NextMatchBoard } from "@/components/NextMatchBoard";
 import { Tag } from "@/components/Tag";
@@ -110,6 +111,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* EVERYTHING ELSE — compact, one tap away. */}
+      <AroundTheWorld />
 
       {/* ROAD SO FAR — the two finals. */}
       <section className="ink section" aria-labelledby="finals-h">

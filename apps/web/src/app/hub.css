@@ -1,0 +1,42 @@
+/* Multi-sport hub: competition index, around-the-world strip, hero illustration. */
+
+/* ---------- hero illustration behind the featured board ---------- */
+
+.nm-hero { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.35; filter: grayscale(0.2) contrast(1.05); }
+.nm-hero + .nm-bands { opacity: 0.75; }
+
+/* ---------- around the world (homepage strip) ---------- */
+
+.atw .sec-head h2 { font-size: clamp(2rem, 5vw, 3rem); }
+.atw-rail { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: 1px; background: var(--rule-ink); border: 1px solid var(--rule-ink); overflow-x: auto; scrollbar-width: thin; }
+.atw-item { background: var(--ink); padding: 14px 14px 12px; display: grid; gap: 6px; align-content: start; text-decoration: none; min-height: 132px; }
+.atw-item:hover { background: var(--ink-2); }
+.atw-line { display: flex; justify-content: space-between; gap: 10px; font-weight: 600; font-size: var(--t-small); color: var(--on-ink-muted); }
+.atw-line.win { color: var(--on-ink); font-weight: 800; }
+.atw-line > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.atw-line > span:last-child { flex: none; }
+.atw-football { background: var(--ink-2); }
+
+/* ---------- competition index ---------- */
+
+.comp-feature { display: grid; gap: 6px; padding: 24px; background: var(--ink); color: var(--on-ink); text-decoration: none; border-left: 6px solid var(--signal); }
+.comp-feature .display { font-size: clamp(2.25rem, 7vw, 4rem); }
+.comp-feature .label { color: var(--signal); }
+.comp-feature:hover .display { text-decoration: underline; text-decoration-color: var(--signal); text-decoration-thickness: 3px; }
+.comp-grid { display: grid; gap: 1px; background: var(--rule-bone); border: 1px solid var(--rule-bone); }
+@media (min-width: 600px) { .comp-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .comp-grid { grid-template-columns: repeat(4, 1fr); } }
+.comp-card { background: var(--bone); padding: 18px 16px; display: grid; gap: 8px; align-content: start; text-decoration: none; min-height: 190px; }
+a.comp-card:hover { background: var(--paper); }
+.comp-card--soon { opacity: 0.7; min-height: 130px; }
+.comp-short { font-size: 3rem; line-height: 0.85; }
+.comp-name { font-weight: 700; }
+.comp-latest { display: grid; gap: 2px; font-size: var(--t-small); border-top: 1px solid var(--rule-bone); padding-top: 8px; margin-top: auto; }
+
+/* ---------- competition page ---------- */
+
+.jump { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.jump a { padding: 8px 14px; border: 1px solid var(--rule-ink); color: var(--on-ink); text-decoration: none; font-size: var(--t-small); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+.jump a:hover { border-color: var(--signal); }
+.cs-head { display: grid; gap: 16px; margin: 16px 0; }
+@media (min-width: 900px) { .cs-head { grid-template-columns: 1fr 1fr; } }
