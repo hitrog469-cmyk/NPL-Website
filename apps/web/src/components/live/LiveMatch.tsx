@@ -60,7 +60,11 @@ export function LiveMatch({ fixtureId, startsAtUtc, kickoffText, label, teams, p
         <div className="wrap lv-grid">
           <div className="lv-main">
             {!started && preview}
-            {started && view.current && <Now state={view.current} />}
+            {started && (() => {
+              // Between innings, keep showing the innings that just finished.
+              const s = view.current?.deliveries.length ? view.current : view.first;
+              return s && <Now state={s} />;
+            })()}
             {started && <Commentary view={view} />}
             {started && view.first && <Card title={`${t(view.first.innings.battingTeam)?.name} innings`} state={view.first} />}
             {started && view.second && <Card title={`${t(view.second.innings.battingTeam)?.name} innings`} state={view.second} />}
@@ -133,6 +137,8 @@ function Board({ view, t, match }: { view: ReturnType<typeof useMatchView>; t: (
       <div className="lv-eq label">
         {match.status === "completed" && match.result?.text ? (
           <strong className="lv-result">{match.result.text}</strong>
+        ) : match.status === "innings_break" && view.target !== null && view.first ? (
+          <>Innings break · <strong>{t(view.first.innings.bowlingTeam)?.name}</strong> need <strong>{view.target}</strong> to win from {view.first.innings.oversLimit} overs</>
         ) : need !== null && need > 0 ? (
           <>Need <strong>{need}</strong> from <strong>{ballsLeft}</strong> balls · RRR {((need * 6) / Math.max(1, ballsLeft)).toFixed(2)} · CRR {crr?.toFixed(2) ?? "–"}</>
         ) : c ? (
