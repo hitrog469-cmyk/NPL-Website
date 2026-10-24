@@ -47,6 +47,8 @@ export interface CricsheetMatch {
 export interface ParseContext {
   teamIdByAlias: Map<string, TeamId>;
   seasonIdByCricsheet: Map<string, string>;
+  /** Fallback when Cricsheet uses a season label we have not seen yet. */
+  seasonIdByYear?: Map<number, string>;
 }
 
 export interface ParsedMatch {
@@ -79,8 +81,8 @@ export function parseCricsheet(id: string, raw: CricsheetMatch, checksum: string
     return r;
   };
 
-  const seasonId = ctx.seasonIdByCricsheet.get(info.season);
-  if (!seasonId) throw new Error(`[${id}] unknown season "${info.season}" — add it to data/seasons.json`);
+  const seasonId = ctx.seasonIdByCricsheet.get(info.season) ?? ctx.seasonIdByYear?.get(Number(info.dates[0]!.slice(0, 4)));
+  if (!seasonId) throw new Error(`[${id}] unknown season "${info.season}" (${info.dates[0]}) — add it to data/seasons.json`);
   if (info.balls_per_over !== 6) warnings.push(`balls_per_over is ${info.balls_per_over}`);
 
   const teams: [TeamId, TeamId] = [team(info.teams[0]), team(info.teams[1])];

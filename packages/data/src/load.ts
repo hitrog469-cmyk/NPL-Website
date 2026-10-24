@@ -66,6 +66,9 @@ export function loadDataset(): Dataset {
   const teamIdByAlias = new Map<string, string>();
   for (const t of teams) for (const a of [t.name, ...t.aliases]) teamIdByAlias.set(a, t.id);
   const seasonIdByCricsheet = new Map(seasons.filter((s) => s.cricsheetSeason).map((s) => [s.cricsheetSeason!, s.id]));
+  // NPL seasons sit inside one calendar year, so a new Cricsheet season label
+  // (e.g. Season 3's) still maps by year without anyone editing seasons.json.
+  const seasonIdByYear = new Map(seasons.map((s) => [s.year, s.id]));
 
   const matches: Match[] = [];
   const players = new Map<string, Player>();
@@ -74,7 +77,7 @@ export function loadDataset(): Dataset {
   const sha = new Map(manifest.matches.map((m) => [m.file, m.sha256]));
   for (const f of files) {
     const id = f.replace(".json", "");
-    const parsed = parseCricsheet(id, readJson<CricsheetMatch>(path.join(csDir, f)), sha.get(f) ?? null, { teamIdByAlias, seasonIdByCricsheet });
+    const parsed = parseCricsheet(id, readJson<CricsheetMatch>(path.join(csDir, f)), sha.get(f) ?? null, { teamIdByAlias, seasonIdByCricsheet, seasonIdByYear });
     matches.push(parsed.match);
     // Later matches win so the most recent spelling of a name is used.
     for (const p of parsed.players) players.set(p.id, p);

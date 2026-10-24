@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Fixture } from "@npl/data";
 import { TeamBadge } from "@/components/TeamBadge";
-import { fixtureLabel, team } from "@/lib/data";
+import { cricsheetForFixture, fixtureLabel, team } from "@/lib/data";
 import { kickoff, matchDate } from "@/lib/format";
 
 /** Fixtures grouped by Nepal-time date. */
@@ -35,7 +35,9 @@ export function FixtureList({ fixtures }: { fixtures: Fixture[] }) {
                       <span className="muted">Teams decided by the league stage</span>
                     )}
                   </span>
-                  {f.teams ? (
+                  {f.teams && cricsheetForFixture(f) ? (
+                    <Link href={`/matches/${cricsheetForFixture(f)!.id}`} className="label fx-no fx-go">{fixtureLabel(f)} · Full scorecard →</Link>
+                  ) : f.teams ? (
                     <Link href={`/live/${f.id}`} className="label fx-no fx-go">{fixtureLabel(f)} · Live &amp; predict →</Link>
                   ) : (
                     <span className="label muted fx-no">{fixtureLabel(f)}</span>

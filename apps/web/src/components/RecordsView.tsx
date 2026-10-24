@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { oversDisplay } from "@npl/cricket-core";
 import { Tag } from "@/components/Tag";
-import { coverage, historicalSeasons, lastTeamOf, playerName, QUALIFIERS, records, seasonLabel, team } from "@/lib/data";
+import { coverage, seasonsWithMatches, lastTeamOf, playerName, QUALIFIERS, records, seasonLabel, team } from "@/lib/data";
 import { fixed, matchDate } from "@/lib/format";
 
 function Coverage({ seasonId }: { seasonId?: string }) {
@@ -37,7 +37,7 @@ export function RecordsView({ seasonId }: { seasonId?: string }) {
         <div className="wrap">
           <nav className="tabs" aria-label="Season" style={{ paddingTop: 16 }}>
             <Link href="/records" aria-current={!seasonId ? "page" : undefined}>All seasons</Link>
-            {historicalSeasons().map((s) => (
+            {seasonsWithMatches().map((s) => (
               <Link key={s.id} href={`/records/${s.id}`} aria-current={seasonId === s.id ? "page" : undefined}>
                 {s.label} · {s.year}
               </Link>

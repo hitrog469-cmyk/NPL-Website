@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FixtureList } from "@/components/FixtureList";
 import { MatchRow } from "@/components/MatchRow";
 import { Tag } from "@/components/Tag";
-import { historicalSeasons, matchesIn, s3Fixtures } from "@/lib/data";
+import { seasonsWithMatches, matchesIn, s3Fixtures } from "@/lib/data";
 
 export const metadata: Metadata = { title: "Matches" };
 
@@ -37,7 +37,7 @@ export default function MatchesPage() {
         </div>
       </section>
 
-      {[...historicalSeasons()].reverse().map((s) => {
+      {[...seasonsWithMatches()].reverse().map((s) => {
         const ms = [...matchesIn(s.id)].reverse();
         return (
           <section key={s.id} className="bone section" style={{ paddingTop: 0 }}>

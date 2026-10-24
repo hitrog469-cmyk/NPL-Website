@@ -23,7 +23,10 @@ const teamMap = () => new Map(ds().teams.map((t) => [t.id, t]));
 export const team = (id: string): Team => teamMap().get(id) ?? { id, name: id, shortName: id.slice(0, 2).toUpperCase(), aliases: [], colour: null, spellingVerified: false };
 export const playerName = (id: string) => ds().players.get(id)?.name ?? id;
 
-export const historicalSeasons = () => ds().seasons.filter((s) => s.cricsheetSeason);
+/** Finished seasons: they get reconstructed tables under /table/[season]. */
+export const historicalSeasons = () => ds().seasons.filter((s) => s.status === "completed");
+/** Seasons with at least one ball-by-ball match imported (Season 3 joins automatically as Cricsheet publishes it). */
+export const seasonsWithMatches = () => ds().seasons.filter((s) => ds().matches.some((m) => m.seasonId === s.id));
 export const seasonLabel = (id: string) => ds().seasons.find((s) => s.id === id)?.label ?? id;
 export const matchesIn = (seasonId?: string) => ds().matches.filter((m) => !seasonId || m.seasonId === seasonId);
 export const matchById = (id: string) => ds().matches.find((m) => m.id === id);
@@ -166,10 +169,29 @@ export function historicalTable(seasonId: string) {
   return { rows: computeStandings(teams, league.map(summaryOf), ASSUMED_T20_RULES), rules: ASSUMED_T20_RULES, matches: league.length };
 }
 
+/** The Cricsheet match for a Season 3 fixture: same two teams on the same Nepal-time date. */
+export function cricsheetForFixture(f: Fixture): Match | undefined {
+  if (!f.teams) return undefined;
+  const date = new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kathmandu" }).format(new Date(f.startsAtUtc));
+  return matchesIn("s3").find((m) => m.date === date && f.teams!.every((t) => m.teams.includes(t)));
+}
+
+/**
+ * Season 3 table: editor-entered results first; any league fixture without
+ * one uses the Cricsheet ball-by-ball match once it has been imported.
+ */
 export function s3Table() {
   const teams = ds().teams.map((t) => t.id);
-  const results = loadS3Results(teams);
-  return { rows: computeStandings(teams, results, ASSUMED_T20_RULES), rules: ASSUMED_T20_RULES, results };
+  const entered = loadS3Results(teams);
+  const done = new Set(entered.map((r) => r.matchId));
+  const imported = s3Fixtures()
+    .fixtures.filter((f) => f.stage === "league" && !done.has(f.id))
+    .flatMap((f) => {
+      const m = cricsheetForFixture(f);
+      return m ? [{ ...summaryOf(m), matchId: f.id }] : [];
+    });
+  const results = [...entered, ...imported];
+  return { rows: computeStandings(teams, results, ASSUMED_T20_RULES), rules: ASSUMED_T20_RULES, results, imported: imported.length };
 }
 
 export const s3Fixtures = () => loadS3Fixtures();
@@ -203,7 +225,7 @@ export function teamFixtures(teamId: string) {
 
 /** Season-by-season results for a team from the ball-by-ball archive. */
 export function teamHistory(teamId: string) {
-  return historicalSeasons().map((s) => {
+  return seasonsWithMatches().map((s) => {
     const ms = matchesIn(s.id).filter((m) => m.teams.includes(teamId));
     const won = ms.filter((m) => winnerOf(m) === teamId).length;
     const nr = ms.filter((m) => m.outcome.type === "no-result" || m.outcome.type === "abandoned").length;

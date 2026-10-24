@@ -31,7 +31,7 @@ export function TableView({ seasonId }: { seasonId: string }) {
 }
 
 function S3() {
-  const { rows, rules, results } = s3Table();
+  const { rows, rules, results, imported } = s3Table();
   return (
     <div style={{ display: "grid", gap: 24 }}>
       {results.length === 0 && (
@@ -45,7 +45,9 @@ function S3() {
         rules={rules}
         caption={
           <>
-            {results.length} result{results.length === 1 ? "" : "s"} entered. <Tag kind="admin_reported" /> until confirmed against official playing conditions.
+            {results.length} result{results.length === 1 ? "" : "s"}
+            {imported > 0 && <> ({imported} from Cricsheet ball-by-ball, {results.length - imported} entered by the editor)</>}. <Tag kind="admin_reported" /> until
+            confirmed against official playing conditions.
           </>
         }
       />

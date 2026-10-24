@@ -1,0 +1,67 @@
+# Pulls new NPL matches from Cricsheet twice a day. If anything changed and
+# every check passes, it commits the new files; Vercel then redeploys.
+# If a check fails (e.g. a new team spelling), nothing is committed and
+# GitHub emails the repo owner.
+name: Cricsheet import
+
+on:
+  schedule:
+    - cron: "15 1,13 * * *" # 07:00 and 19:00 Nepal time
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cricsheet-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Import from Cricsheet
+        run: npm run import:cricsheet
+
+      - name: Anything new?
+        id: diff
+        run: |
+          if git diff --quiet -- data/cricsheet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new matches."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            git diff --stat -- data/cricsheet
+          fi
+
+      - name: Verify every innings reconciles
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run verify:stats
+
+      - name: Tests
+        if: steps.diff.outputs.changed == 'true'
+        run: npm test
+
+      - name: Build
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Commit
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/cricsheet
+          n=$(git diff --cached --name-only -- 'data/cricsheet/npl/*.json' | grep -v manifest | wc -l)
+          git commit -m "Cricsheet import: ${n} new or updated NPL match file(s)"
+          git push
