@@ -14,7 +14,7 @@ export const SITE = {
  */
 export const FLAGS = {
   nepaliLabels: false, // awaiting Rohit's review of the NE dictionary
-  teams: false,
+  teams: true,
   players: false,
   liveScoring: false,
   rewind: false,

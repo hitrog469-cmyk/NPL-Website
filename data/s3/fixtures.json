@@ -1,7 +1,380 @@
 {
-  "_note": "Official Season 3 fixtures. Empty until the official sheet is supplied and approved. startsAtUtc is stored in UTC; display is always Asia/Kathmandu.",
-  "status": "pending_approval",
-  "approvedAt": null,
-  "source": null,
-  "fixtures": []
+  "_note": "Season 3 fixtures. startsAtUtc in UTC; display always Asia/Kathmandu (12:30 PM = 06:45Z, 4:30 PM = 10:45Z).",
+  "status": "approved",
+  "approvedAt": "2026-10-24",
+  "source": "Published schedule, read 2026-10-24; approved by Rohit",
+  "fixtures": [
+    {
+      "id": "s3-m01",
+      "matchNumber": 1,
+      "stage": "league",
+      "teams": [
+        "lumbini-lions",
+        "sudurpaschim-royals"
+      ],
+      "startsAtUtc": "2026-10-26T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m02",
+      "matchNumber": 2,
+      "stage": "league",
+      "teams": [
+        "biratnagar-kings",
+        "chitwan-rhinos"
+      ],
+      "startsAtUtc": "2026-10-27T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m03",
+      "matchNumber": 3,
+      "stage": "league",
+      "teams": [
+        "janakpur-bolts",
+        "karnali-yaks"
+      ],
+      "startsAtUtc": "2026-10-27T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m04",
+      "matchNumber": 4,
+      "stage": "league",
+      "teams": [
+        "pokhara-avengers",
+        "sudurpaschim-royals"
+      ],
+      "startsAtUtc": "2026-10-28T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m05",
+      "matchNumber": 5,
+      "stage": "league",
+      "teams": [
+        "janakpur-bolts",
+        "kathmandu-gorkhas"
+      ],
+      "startsAtUtc": "2026-10-29T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m06",
+      "matchNumber": 6,
+      "stage": "league",
+      "teams": [
+        "biratnagar-kings",
+        "karnali-yaks"
+      ],
+      "startsAtUtc": "2026-10-29T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m07",
+      "matchNumber": 7,
+      "stage": "league",
+      "teams": [
+        "chitwan-rhinos",
+        "lumbini-lions"
+      ],
+      "startsAtUtc": "2026-10-31T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m08",
+      "matchNumber": 8,
+      "stage": "league",
+      "teams": [
+        "biratnagar-kings",
+        "sudurpaschim-royals"
+      ],
+      "startsAtUtc": "2026-10-31T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m09",
+      "matchNumber": 9,
+      "stage": "league",
+      "teams": [
+        "janakpur-bolts",
+        "pokhara-avengers"
+      ],
+      "startsAtUtc": "2026-11-01T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m10",
+      "matchNumber": 10,
+      "stage": "league",
+      "teams": [
+        "karnali-yaks",
+        "kathmandu-gorkhas"
+      ],
+      "startsAtUtc": "2026-11-02T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m11",
+      "matchNumber": 11,
+      "stage": "league",
+      "teams": [
+        "chitwan-rhinos",
+        "sudurpaschim-royals"
+      ],
+      "startsAtUtc": "2026-11-02T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m12",
+      "matchNumber": 12,
+      "stage": "league",
+      "teams": [
+        "biratnagar-kings",
+        "janakpur-bolts"
+      ],
+      "startsAtUtc": "2026-11-03T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m13",
+      "matchNumber": 13,
+      "stage": "league",
+      "teams": [
+        "lumbini-lions",
+        "pokhara-avengers"
+      ],
+      "startsAtUtc": "2026-11-03T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m14",
+      "matchNumber": 14,
+      "stage": "league",
+      "teams": [
+        "janakpur-bolts",
+        "lumbini-lions"
+      ],
+      "startsAtUtc": "2026-11-05T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m15",
+      "matchNumber": 15,
+      "stage": "league",
+      "teams": [
+        "biratnagar-kings",
+        "kathmandu-gorkhas"
+      ],
+      "startsAtUtc": "2026-11-05T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m16",
+      "matchNumber": 16,
+      "stage": "league",
+      "teams": [
+        "karnali-yaks",
+        "sudurpaschim-royals"
+      ],
+      "startsAtUtc": "2026-11-06T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m17",
+      "matchNumber": 17,
+      "stage": "league",
+      "teams": [
+        "chitwan-rhinos",
+        "pokhara-avengers"
+      ],
+      "startsAtUtc": "2026-11-06T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m18",
+      "matchNumber": 18,
+      "stage": "league",
+      "teams": [
+        "kathmandu-gorkhas",
+        "lumbini-lions"
+      ],
+      "startsAtUtc": "2026-11-07T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m19",
+      "matchNumber": 19,
+      "stage": "league",
+      "teams": [
+        "karnali-yaks",
+        "pokhara-avengers"
+      ],
+      "startsAtUtc": "2026-11-09T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m20",
+      "matchNumber": 20,
+      "stage": "league",
+      "teams": [
+        "chitwan-rhinos",
+        "kathmandu-gorkhas"
+      ],
+      "startsAtUtc": "2026-11-09T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m21",
+      "matchNumber": 21,
+      "stage": "league",
+      "teams": [
+        "janakpur-bolts",
+        "sudurpaschim-royals"
+      ],
+      "startsAtUtc": "2026-11-10T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m22",
+      "matchNumber": 22,
+      "stage": "league",
+      "teams": [
+        "biratnagar-kings",
+        "pokhara-avengers"
+      ],
+      "startsAtUtc": "2026-11-12T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m23",
+      "matchNumber": 23,
+      "stage": "league",
+      "teams": [
+        "karnali-yaks",
+        "lumbini-lions"
+      ],
+      "startsAtUtc": "2026-11-12T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m24",
+      "matchNumber": 24,
+      "stage": "league",
+      "teams": [
+        "kathmandu-gorkhas",
+        "sudurpaschim-royals"
+      ],
+      "startsAtUtc": "2026-11-13T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m25",
+      "matchNumber": 25,
+      "stage": "league",
+      "teams": [
+        "chitwan-rhinos",
+        "janakpur-bolts"
+      ],
+      "startsAtUtc": "2026-11-13T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m26",
+      "matchNumber": 26,
+      "stage": "league",
+      "teams": [
+        "biratnagar-kings",
+        "lumbini-lions"
+      ],
+      "startsAtUtc": "2026-11-14T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m27",
+      "matchNumber": 27,
+      "stage": "league",
+      "teams": [
+        "chitwan-rhinos",
+        "karnali-yaks"
+      ],
+      "startsAtUtc": "2026-11-15T06:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-m28",
+      "matchNumber": 28,
+      "stage": "league",
+      "teams": [
+        "kathmandu-gorkhas",
+        "pokhara-avengers"
+      ],
+      "startsAtUtc": "2026-11-15T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-q1",
+      "matchNumber": null,
+      "stage": "qualifier-1",
+      "teams": null,
+      "startsAtUtc": "2026-11-17T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-el",
+      "matchNumber": null,
+      "stage": "eliminator",
+      "teams": null,
+      "startsAtUtc": "2026-11-18T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-q2",
+      "matchNumber": null,
+      "stage": "qualifier-2",
+      "teams": null,
+      "startsAtUtc": "2026-11-19T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    },
+    {
+      "id": "s3-final",
+      "matchNumber": null,
+      "stage": "final",
+      "teams": null,
+      "startsAtUtc": "2026-11-21T10:45:00.000Z",
+      "venue": "Tribhuvan University International Cricket Ground, Kirtipur",
+      "status": "scheduled"
+    }
+  ]
 }

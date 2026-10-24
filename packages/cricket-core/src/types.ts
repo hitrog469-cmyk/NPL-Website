@@ -125,4 +125,7 @@ export interface Team {
   /** Verified palette; null until admin enters it. */
   colour: string | null;
   spellingVerified: boolean;
+  website?: string | null;
+  /** Path under the web app's public folder, or null for the typographic fallback. */
+  logo?: string | null;
 }

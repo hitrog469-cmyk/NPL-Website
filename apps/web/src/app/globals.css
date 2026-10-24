@@ -350,3 +350,86 @@ table.data .sub { display: block; font-size: var(--t-micro); color: var(--on-bon
 /* Grid/flex children default to min-width:auto and would grow to fit wide
    tables; let them shrink so .table-wrap scrolls instead of the page. */
 .board > *, .leaders > *, .records-grid > *, .innings-block > *, .finals > *, .sec-head > * { min-width: 0; }
+
+/* ---------- team badges ---------- */
+
+.badge { display: inline-block; flex: none; object-fit: cover; background: #fff; }
+.badge--type { display: inline-grid; place-items: center; background: var(--ink); color: var(--on-ink); }
+
+/* ---------- next-match board ---------- */
+
+.nm { position: relative; overflow: hidden; }
+.nm-bands { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; opacity: 0.9; }
+.nm-bands span:first-child { background: linear-gradient(90deg, var(--a, var(--ink-2)) 0%, transparent 70%); }
+.nm-bands span:last-child { background: linear-gradient(270deg, var(--b, var(--ink-2)) 0%, transparent 70%); }
+.nm-inner { position: relative; padding-top: 28px; padding-bottom: 40px; }
+@media (min-width: 1024px) { .nm-inner { padding-top: 40px; padding-bottom: 64px; } }
+.nm-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; align-items: center; margin-bottom: 28px; }
+.nm-when { color: var(--on-ink); background: var(--signal); padding: 2px 6px; }
+.nm-grid { display: grid; gap: 20px; grid-template-areas: "a" "c" "b"; }
+@media (min-width: 900px) { .nm-grid { grid-template-columns: 1fr auto 1fr; grid-template-areas: "a c b"; align-items: center; gap: 32px; } }
+.nm-side { grid-area: a; display: grid; gap: 12px; justify-items: start; text-decoration: none; }
+.nm-side.nm-b { grid-area: b; }
+@media (min-width: 900px) { .nm-side.nm-b { justify-items: end; text-align: right; } }
+.nm-side .badge { width: 88px; height: 88px; box-shadow: 0 0 0 3px var(--on-ink); }
+@media (min-width: 900px) { .nm-side .badge { width: 120px; height: 120px; } }
+.nm-name { font-size: clamp(2.75rem, 9vw, 6rem); line-height: 0.88; }
+.nm-form { color: var(--on-ink); opacity: 0.8; }
+.nm-centre { grid-area: c; display: grid; gap: 4px; justify-items: start; border-top: 1px solid var(--rule-ink); border-bottom: 1px solid var(--rule-ink); padding: 12px 0; }
+@media (min-width: 900px) { .nm-centre { justify-items: center; text-align: center; border: 0; padding: 0; } }
+.nm-time { font-size: clamp(3rem, 8vw, 5.5rem); color: var(--on-ink); }
+
+.season-strip { background: var(--ink-2); color: var(--on-ink); border-top: 1px solid var(--rule-ink); }
+.season-strip .wrap { display: flex; flex-wrap: wrap; gap: 6px 24px; padding-top: 10px; padding-bottom: 10px; }
+
+/* ---------- fixtures ---------- */
+
+.fx-days { display: grid; gap: 28px; }
+@media (min-width: 1024px) { .fx-days { grid-template-columns: repeat(2, 1fr); column-gap: 48px; } }
+.fx-date { padding-bottom: 6px; border-bottom: 3px solid var(--on-bone); }
+.fx-list { list-style: none; margin: 0; padding: 0; }
+.fx { display: grid; grid-template-columns: 76px 1fr; gap: 4px 12px; padding: 12px 0; border-bottom: 1px solid var(--rule-bone); align-items: center; }
+@media (min-width: 600px) { .fx { grid-template-columns: 76px 1fr auto; } }
+.fx-time { font-family: var(--f-display); font-weight: 800; font-size: 1.375rem; line-height: 1; }
+.fx-teams { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: center; font-weight: 600; min-width: 0; }
+.fx-team { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; }
+.fx-team:hover span:not(.fx-v) { text-decoration: underline; text-decoration-color: var(--signal); }
+.fx-v { margin-left: 4px; font-weight: 400; }
+.fx-no { grid-column: 2; }
+@media (min-width: 600px) { .fx-no { grid-column: auto; } }
+
+/* ---------- team rail with logos ---------- */
+
+.team-cell { text-decoration: none; border-top: 4px solid var(--tc, var(--ink)); }
+.team-cell:hover .name { text-decoration: underline; text-decoration-color: var(--signal); }
+
+/* ---------- teams index ---------- */
+
+.team-grid { display: grid; gap: 1px; background: var(--rule-bone); border: 1px solid var(--rule-bone); }
+@media (min-width: 600px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .team-grid { grid-template-columns: repeat(4, 1fr); } }
+.team-card { background: var(--bone); padding: 20px 16px; display: grid; gap: 12px; align-content: start; text-decoration: none; border-top: 6px solid var(--tc); }
+.team-card:hover { background: var(--paper); }
+.team-card-name { font-size: 2.25rem; }
+.champ { color: var(--on-bone); }
+
+/* ---------- team page ---------- */
+
+.team-hero { background: linear-gradient(110deg, var(--tc) 0%, var(--ink) 75%); }
+.team-hero-inner { display: grid; gap: 20px; padding-top: 36px; padding-bottom: 40px; align-items: end; }
+@media (min-width: 768px) { .team-hero-inner { grid-template-columns: auto 1fr; gap: 32px; padding-top: 56px; padding-bottom: 56px; } }
+.team-hero .badge { width: 112px; height: 112px; box-shadow: 0 0 0 3px var(--on-ink); }
+@media (min-width: 768px) { .team-hero .badge { width: 160px; height: 160px; } }
+.team-hero-name { font-size: clamp(3.25rem, 11vw, 8rem); margin-top: 8px; }
+.team-hero-hist { display: flex; flex-wrap: wrap; gap: 4px 20px; margin-top: 14px; color: var(--on-ink); }
+
+.team-layout { display: grid; gap: 48px; }
+.team-layout > * { min-width: 0; }
+@media (min-width: 1024px) { .team-layout { grid-template-columns: 8fr 4fr; gap: 48px; } }
+.team-rail-side { display: grid; gap: 32px; align-content: start; }
+@media (min-width: 1024px) { .team-rail-side { border-left: 1px solid var(--rule-bone); padding-left: 32px; } }
+
+.squad { list-style: none; margin: 0; padding: 0; display: grid; border-top: 3px solid var(--on-bone); }
+@media (min-width: 600px) { .squad { grid-template-columns: 1fr 1fr; column-gap: 32px; } }
+.squad li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--rule-bone); }
+.squad-name { font-weight: 700; }

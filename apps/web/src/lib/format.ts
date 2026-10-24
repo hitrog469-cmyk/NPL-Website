@@ -27,6 +27,17 @@ export function daysBetween(a: string, b: string): number {
   return Math.round((t(b) - t(a)) / 86_400_000);
 }
 
+/** Kick-off in Nepal time regardless of where the page is rendered or viewed. */
+export function kickoff(isoUtc: string) {
+  const d = new Date(isoUtc);
+  const part = (o: Intl.DateTimeFormatOptions) => new Intl.DateTimeFormat("en-GB", { timeZone: SITE.timezone, ...o }).format(d);
+  return {
+    date: part({ year: "numeric", month: "2-digit", day: "2-digit" }).split("/").reverse().join("-"),
+    time: part({ hour: "numeric", minute: "2-digit", hour12: true }).toUpperCase().replace(" ", " "),
+    weekday: part({ weekday: "short" }),
+  };
+}
+
 export const fixed = (n: number | null, digits = 2) => (n === null ? "–" : n.toFixed(digits));
 
 export const signed = (n: number | null, digits = 3) => (n === null ? "–" : (n > 0 ? "+" : "") + n.toFixed(digits));

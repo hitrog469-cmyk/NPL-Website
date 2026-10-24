@@ -20,6 +20,7 @@ export function Footer() {
             {c.matches} NPL matches, {c.first && matchDate(c.first)} – {c.last && matchDate(c.last)}. Season 3 results are entered by
             the site editor and labelled as such.
           </p>
+          <p style={{ marginTop: 8 }}>Team names and logos are trademarks of their franchises, shown only to identify the teams.</p>
         </div>
         <div>
           <p className="label" style={{ marginBottom: 6 }}>About the numbers</p>

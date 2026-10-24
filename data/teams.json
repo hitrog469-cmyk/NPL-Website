@@ -1,13 +1,103 @@
 {
-  "_note": "Canonical team list. Names are display spellings pending official verification; aliases are spellings seen in sources. colour stays null until verified palette values are entered.",
+  "_note": "Canonical team list. Names, colours and logos taken from each franchise’s own site/logo (24 Oct 2026). Colour is sampled from the logo. Logos are the franchises’ trademarks, used only to identify teams.",
   "teams": [
-    { "id": "biratnagar-kings", "name": "Biratnagar Kings", "shortName": "BK", "aliases": ["Biratnagar Kings"], "colour": null, "spellingVerified": false },
-    { "id": "chitwan-rhinos", "name": "Chitwan Rhinos", "shortName": "CR", "aliases": ["Chitwan Rhinos"], "colour": null, "spellingVerified": false },
-    { "id": "janakpur-bolts", "name": "Janakpur Bolts", "shortName": "JB", "aliases": ["Janakpur Bolts"], "colour": null, "spellingVerified": false },
-    { "id": "karnali-yaks", "name": "Karnali Yaks", "shortName": "KY", "aliases": ["Karnali Yaks"], "colour": null, "spellingVerified": false },
-    { "id": "kathmandu-gorkhas", "name": "Kathmandu Gorkhas", "shortName": "KG", "aliases": ["Kathmandu Gorkhas", "Kathmandu Gurkhas"], "colour": null, "spellingVerified": false },
-    { "id": "lumbini-lions", "name": "Lumbini Lions", "shortName": "LL", "aliases": ["Lumbini Lions"], "colour": null, "spellingVerified": false },
-    { "id": "pokhara-avengers", "name": "Pokhara Avengers", "shortName": "PA", "aliases": ["Pokhara Avengers"], "colour": null, "spellingVerified": false },
-    { "id": "sudurpaschim-royals", "name": "Sudurpaschim Royals", "shortName": "SR", "aliases": ["Sudurpaschim Royals", "Sudur Paschim Royals"], "colour": null, "spellingVerified": false }
+    {
+      "id": "biratnagar-kings",
+      "name": "Biratnagar Kings",
+      "shortName": "BK",
+      "aliases": [
+        "Biratnagar Kings"
+      ],
+      "colour": "#1F2D5C",
+      "spellingVerified": true,
+      "website": "https://biratkings.com/",
+      "logo": "/teams/biratnagar-kings.webp"
+    },
+    {
+      "id": "chitwan-rhinos",
+      "name": "Chitwan Rhinos",
+      "shortName": "CR",
+      "aliases": [
+        "Chitwan Rhinos"
+      ],
+      "colour": "#E05A26",
+      "spellingVerified": true,
+      "website": "https://chitwanrhinos.com/",
+      "logo": "/teams/chitwan-rhinos.webp"
+    },
+    {
+      "id": "janakpur-bolts",
+      "name": "Janakpur Bolts",
+      "shortName": "JB",
+      "aliases": [
+        "Janakpur Bolts"
+      ],
+      "colour": "#C2185B",
+      "spellingVerified": true,
+      "website": "https://boltsjanakpur.com/",
+      "logo": "/teams/janakpur-bolts.webp"
+    },
+    {
+      "id": "karnali-yaks",
+      "name": "Karnali Yaks",
+      "shortName": "KY",
+      "aliases": [
+        "Karnali Yaks"
+      ],
+      "colour": "#1F6FB8",
+      "spellingVerified": true,
+      "website": "https://karnaliyaks.com/",
+      "logo": "/teams/karnali-yaks.webp"
+    },
+    {
+      "id": "kathmandu-gorkhas",
+      "name": "Kathmandu Gorkhas",
+      "shortName": "KG",
+      "aliases": [
+        "Kathmandu Gorkhas",
+        "Kathmandu Gurkhas"
+      ],
+      "colour": "#5B2A86",
+      "spellingVerified": true,
+      "website": null,
+      "logo": "/teams/kathmandu-gorkhas.webp"
+    },
+    {
+      "id": "lumbini-lions",
+      "name": "Lumbini Lions",
+      "shortName": "LL",
+      "aliases": [
+        "Lumbini Lions"
+      ],
+      "colour": "#C8102E",
+      "spellingVerified": true,
+      "website": "https://lumbinilions.com.np/",
+      "logo": "/teams/lumbini-lions.webp"
+    },
+    {
+      "id": "pokhara-avengers",
+      "name": "Pokhara Avengers",
+      "shortName": "PA",
+      "aliases": [
+        "Pokhara Avengers"
+      ],
+      "colour": "#7A1424",
+      "spellingVerified": true,
+      "website": "https://pokharaavengers.com/",
+      "logo": "/teams/pokhara-avengers.webp"
+    },
+    {
+      "id": "sudurpaschim-royals",
+      "name": "Sudurpaschim Royals",
+      "shortName": "SR",
+      "aliases": [
+        "Sudurpaschim Royals",
+        "Sudur Paschim Royals"
+      ],
+      "colour": "#2B3A9E",
+      "spellingVerified": true,
+      "website": "https://sudurpaschimroyals.com/",
+      "logo": "/teams/sudurpaschim-royals.webp"
+    }
   ]
 }

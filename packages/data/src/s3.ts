@@ -34,6 +34,27 @@ export interface S3Result extends ResultSummary {
   note?: string;
 }
 
+export interface SquadPlayer {
+  name: string;
+  role: "batter" | "bowler" | "all-rounder" | "wicketkeeper" | "wicketkeeper-batter" | null;
+  captain?: boolean;
+  overseas?: boolean;
+}
+
+export interface Squad {
+  sourceUrl: string;
+  readAt: string;
+  verified: boolean;
+  note: string | null;
+  players: SquadPlayer[];
+}
+
+export function loadS3Squads(): Record<string, Squad> {
+  const p = path.join(dataDir(), "s3", "squads.json");
+  if (!existsSync(p)) return {};
+  return (JSON.parse(readFileSync(p, "utf8")) as { teams: Record<string, Squad> }).teams;
+}
+
 export function loadS3Fixtures(): FixtureFile {
   return JSON.parse(readFileSync(path.join(dataDir(), "s3", "fixtures.json"), "utf8")) as FixtureFile;
 }

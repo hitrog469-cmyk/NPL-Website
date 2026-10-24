@@ -19,6 +19,8 @@ const ROUTES = [
   { name: "table", path: "/table" },
   { name: "table-s1", path: "/table/s1" },
   { name: "matches", path: "/matches" },
+  { name: "teams", path: "/teams" },
+  { name: "team-pokhara", path: "/teams/pokhara-avengers" },
   { name: "match-superover", path: "/matches/1462658" },
 ];
 

@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { oversDisplay } from "@npl/cricket-core";
+import { FixtureList } from "@/components/FixtureList";
+import { NextMatchBoard } from "@/components/NextMatchBoard";
 import { Tag } from "@/components/Tag";
-import { coverage, ds, finals, lastTeamOf, playerName, records, resultLine, s3Fixtures, s3Season, scored, seasonLabel, team, winnerOf } from "@/lib/data";
+import { TeamBadge } from "@/components/TeamBadge";
+import { coverage, ds, finals, lastTeamOf, playerName, records, resultLine, s3Fixtures, s3Season, scored, seasonLabel, team, upcomingFixtures, winnerOf } from "@/lib/data";
 import { daysBetween, fixed, matchDate, todayKathmandu } from "@/lib/format";
 
 export default function Home() {
@@ -17,9 +20,13 @@ export default function Home() {
   const wkts = rec.mostWickets.slice(0, 6);
   const hs = rec.highestScores.slice(0, 5);
 
+  const upcoming = fixtures.status === "approved" ? upcomingFixtures() : [];
+  const next = upcoming[0];
+
   return (
     <>
-      {/* SEASON BOARD — pre-season state. Switches to the confrontation/score board once fixtures are approved. */}
+      {next ? <NextMatchBoard fixture={next} /> : (
+      /* SEASON BOARD — shown until fixtures are approved. */
       <section className="ink" aria-labelledby="board-title">
         <div className="wrap board">
           <div className="board-main">
@@ -57,27 +64,50 @@ export default function Home() {
           </aside>
         </div>
       </section>
+      )}
 
-      {/* FIXTURES RAIL — designed empty state until the official sheet is approved. */}
-      <section className="bone section" aria-labelledby="teams-h">
+      {/* SEASON STRIP — the season at a glance under the next-match board. */}
+      {next && start && end && (
+        <div className="season-strip">
+          <div className="wrap">
+            <span className="label">Season 3</span>
+            <span className="label muted num">{matchDate(start, { year: false })} – {matchDate(end)}</span>
+            <span className="label muted">28 league · 4 playoffs</span>
+            <span className="label muted">{upcoming.length} matches to play</span>
+          </div>
+        </div>
+      )}
+
+      {/* FIXTURES */}
+      <section className="bone section" aria-labelledby="fx-h">
+        <div className="wrap">
+          <div className="sec-head">
+            <h2 id="fx-h" className="display">Coming up</h2>
+            <p className="aside muted">All times Nepal time · <Link href="/matches">Full schedule</Link></p>
+          </div>
+          {upcoming.length > 0 ? (
+            <FixtureList fixtures={upcoming.slice(0, 6)} />
+          ) : (
+            <div className="empty"><p className="display">Fixtures not yet published</p></div>
+          )}
+        </div>
+      </section>
+
+      {/* TEAMS */}
+      <section className="paper section" aria-labelledby="teams-h">
         <div className="wrap">
           <div className="sec-head">
             <h2 id="teams-h" className="display">The eight</h2>
-            <p className="aside muted">
-              {fixtures.status === "approved"
-                ? `${fixtures.fixtures.length} fixtures published`
-                : "Fixtures appear here once the official schedule is checked and approved. We never copy third-party schedules."}
-            </p>
+            <p className="aside muted"><Link href="/teams">Squads and team records</Link></p>
           </div>
           <div className="team-rail">
             {ds().teams.map((t) => (
-              <div key={t.id} className="team-cell">
-                <span className="display" aria-hidden>{t.shortName}</span>
+              <Link key={t.id} href={`/teams/${t.id}`} className="team-cell" style={{ "--tc": t.colour ?? "var(--ink)" } as React.CSSProperties}>
+                <TeamBadge team={t} size={64} />
                 <span className="name">{t.name}</span>
-              </div>
+              </Link>
             ))}
           </div>
-          <p className="caption">Team names shown as plain text. Spellings pending official confirmation (Gorkhas / Gurkhas both appear in past data).</p>
         </div>
       </section>
 

@@ -1,0 +1,543 @@
+{
+  "_note": "Season 3 squads as listed on team websites on the date read. Unverified until checked against the official squad announcement. Players are not yet linked to Cricsheet ids.",
+  "teams": {
+    "sudurpaschim-royals": {
+      "sourceUrl": "https://sudurpaschimroyals.com/squad",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": "Team site lists Nepali players only.",
+      "players": [
+        {
+          "name": "Binod Bhandari",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Aarif Sheikh",
+          "role": "batter"
+        },
+        {
+          "name": "Hemant Dhami",
+          "role": "bowler"
+        },
+        {
+          "name": "Dipendra Singh Airee",
+          "role": "batter",
+          "captain": true
+        },
+        {
+          "name": "Hikmat Mahara",
+          "role": "bowler"
+        },
+        {
+          "name": "Ishan Pandey",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Abinash Bohara",
+          "role": "bowler"
+        },
+        {
+          "name": "Sachin Bhatta",
+          "role": "bowler"
+        },
+        {
+          "name": "Dipak Bohara",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Milan Bohara",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Tek Rawt",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Aayub Chand",
+          "role": "batter"
+        },
+        {
+          "name": "Anil Kharel",
+          "role": "bowler"
+        }
+      ]
+    },
+    "pokhara-avengers": {
+      "sourceUrl": "https://pokharaavengers.com/squad",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": null,
+      "players": [
+        {
+          "name": "Kushal Bhurtel",
+          "role": "batter",
+          "captain": true
+        },
+        {
+          "name": "Dinesh Kharel",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Arjun Kumal",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Bipin Khatri",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Akash Chand",
+          "role": "bowler"
+        },
+        {
+          "name": "Sagar Dhakal",
+          "role": "bowler"
+        },
+        {
+          "name": "Kiran Kumar Thagunna",
+          "role": "batter"
+        },
+        {
+          "name": "Arjun Gharti Magar",
+          "role": "wicketkeeper"
+        },
+        {
+          "name": "Pratik Pokhrel",
+          "role": "bowler"
+        },
+        {
+          "name": "Sudip Aryal",
+          "role": "bowler"
+        },
+        {
+          "name": "Bibek Rana Magar",
+          "role": "batter"
+        },
+        {
+          "name": "Sunny BK",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Shakib Al Hasan",
+          "role": "all-rounder",
+          "overseas": true
+        },
+        {
+          "name": "Dhananjaya Lakshan",
+          "role": "all-rounder",
+          "overseas": true
+        },
+        {
+          "name": "Bipin Acharya",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Chamika Karunaratne",
+          "role": "all-rounder",
+          "overseas": true
+        }
+      ]
+    },
+    "biratnagar-kings": {
+      "sourceUrl": "https://biratkings.com/#squad",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": "Team site lists only 6 players.",
+      "players": [
+        {
+          "name": "Sandeep Lamichhane",
+          "role": "bowler"
+        },
+        {
+          "name": "Lokesh Bam",
+          "role": "batter"
+        },
+        {
+          "name": "Basir Ahmad",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Pratish GC",
+          "role": "bowler"
+        },
+        {
+          "name": "Subash Bhandari",
+          "role": "bowler"
+        },
+        {
+          "name": "Narayan Joshi",
+          "role": "all-rounder"
+        }
+      ]
+    },
+    "lumbini-lions": {
+      "sourceUrl": "https://lumbinilions.com.np/our-squad",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": "Team site footer says 2025; may be last season’s list.",
+      "players": [
+        {
+          "name": "Rohit Paudel",
+          "role": "batter",
+          "captain": true
+        },
+        {
+          "name": "Sundeep Jora",
+          "role": "batter"
+        },
+        {
+          "name": "Tilak Bhandari",
+          "role": "bowler"
+        },
+        {
+          "name": "Abhishesh Gautam",
+          "role": "bowler"
+        },
+        {
+          "name": "Dinesh Adhikari",
+          "role": "bowler"
+        },
+        {
+          "name": "Durgesh Gupta",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Sher Malla",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Dilip Nath",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "D’Arcy Short",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Trumpelmann",
+          "role": "bowler"
+        },
+        {
+          "name": "Niroshan Dickwella",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Aasif Sheikh",
+          "role": "batter"
+        },
+        {
+          "name": "Aakash Tripathi",
+          "role": "batter"
+        },
+        {
+          "name": "Kishore Mahato",
+          "role": "bowler"
+        },
+        {
+          "name": "Arniko Yadav",
+          "role": "bowler"
+        },
+        {
+          "name": "Ajay Chauhan",
+          "role": "bowler"
+        }
+      ]
+    },
+    "karnali-yaks": {
+      "sourceUrl": "https://karnaliyaks.com/our-yaks",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": null,
+      "players": [
+        {
+          "name": "Shubh Kansakar",
+          "role": "batter"
+        },
+        {
+          "name": "Sachin Sharma",
+          "role": "batter"
+        },
+        {
+          "name": "Nandan Yadav",
+          "role": "bowler"
+        },
+        {
+          "name": "Unish B.S. Thakuri",
+          "role": "bowler"
+        },
+        {
+          "name": "Yuvraj Khatri",
+          "role": "bowler"
+        },
+        {
+          "name": "Bipin Sharma",
+          "role": "bowler"
+        },
+        {
+          "name": "Surya Tamang",
+          "role": "bowler"
+        },
+        {
+          "name": "Sompal Kami",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Gulshan Jha",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Pawan Sarraf",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Diwan Pun",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Dipendra Rawat",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Mark Watt",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Dipak Dumre",
+          "role": "wicketkeeper"
+        }
+      ]
+    },
+    "chitwan-rhinos": {
+      "sourceUrl": "https://chitwanrhinos.com/team",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": null,
+      "players": [
+        {
+          "name": "Kushal Malla",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Ranjeet Kumar",
+          "role": "bowler"
+        },
+        {
+          "name": "Deepak Bohara",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Dev Khanal",
+          "role": "batter"
+        },
+        {
+          "name": "Bipin Rawal",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Rijan Dhakal",
+          "role": "bowler"
+        },
+        {
+          "name": "Arjun Saud",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Kamal Singh Airee",
+          "role": "bowler"
+        },
+        {
+          "name": "Gautam KC",
+          "role": "bowler"
+        },
+        {
+          "name": "Mousam Dhakal",
+          "role": "bowler"
+        },
+        {
+          "name": "Ravi Bopara",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Bibek Kumar Yadav",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Ashok Dhami",
+          "role": "bowler"
+        },
+        {
+          "name": "Salahuddin Khan",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Sikandar Raza",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Kaleem Sana",
+          "role": "bowler"
+        }
+      ]
+    },
+    "janakpur-bolts": {
+      "sourceUrl": "https://boltsjanakpur.com/squad",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": null,
+      "players": [
+        {
+          "name": "Anil Kumar Sah",
+          "role": "wicketkeeper"
+        },
+        {
+          "name": "Asif Sheikh",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Lahiru Milantha",
+          "role": "wicketkeeper-batter"
+        },
+        {
+          "name": "Shubh Kansakar",
+          "role": "batter"
+        },
+        {
+          "name": "Mayan Yadav",
+          "role": "batter"
+        },
+        {
+          "name": "Sangeeth Cooray",
+          "role": "batter"
+        },
+        {
+          "name": "Tul Bahadur Thapa Magar",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Lahiru Samarakoon",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Rupesh Singh",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Sanjay Krishnamurthi",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Bikash Aagri",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Jan Nicol Loftie-Eaton",
+          "role": "batter"
+        },
+        {
+          "name": "Lalit Narayan Rajbanshi",
+          "role": "bowler"
+        },
+        {
+          "name": "Kishore Mahato",
+          "role": "bowler"
+        },
+        {
+          "name": "Aaditya Mahata",
+          "role": null
+        },
+        {
+          "name": "Imran Tahir",
+          "role": "bowler"
+        },
+        {
+          "name": "Sachin Batta",
+          "role": "bowler"
+        },
+        {
+          "name": "Wayne Parnell",
+          "role": "bowler"
+        }
+      ]
+    },
+    "kathmandu-gorkhas": {
+      "sourceUrl": "https://team11nepal.com/teams/kathmandu-gurkhas",
+      "readAt": "2026-10-24",
+      "verified": false,
+      "note": "No official team site found; list from a third-party fantasy app and may be out of date.",
+      "players": [
+        {
+          "name": "Karan KC",
+          "role": "bowler"
+        },
+        {
+          "name": "Gerhard Erasmus",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Rashid Khan",
+          "role": "bowler"
+        },
+        {
+          "name": "Shahab Alam",
+          "role": "bowler"
+        },
+        {
+          "name": "Tul Bahadur Thapa",
+          "role": "bowler"
+        },
+        {
+          "name": "Dipesh Prasad Kandel",
+          "role": "bowler"
+        },
+        {
+          "name": "Bhim Sharki",
+          "role": "batter"
+        },
+        {
+          "name": "Aakash Tripathi",
+          "role": "batter"
+        },
+        {
+          "name": "Ben Charlesworth",
+          "role": "batter"
+        },
+        {
+          "name": "John Simpson",
+          "role": "wicketkeeper"
+        },
+        {
+          "name": "Milind Kumar",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Mohammad Aadil Alam",
+          "role": "bowler"
+        },
+        {
+          "name": "Natarajan Shah",
+          "role": "bowler"
+        },
+        {
+          "name": "Pratik Shrestha",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Ricardo Vasconcelos",
+          "role": "wicketkeeper"
+        },
+        {
+          "name": "Santosh Yadav",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Sunny Patel",
+          "role": "all-rounder"
+        },
+        {
+          "name": "Uttam Magar",
+          "role": "batter"
+        }
+      ]
+    }
+  }
+}

@@ -23,6 +23,17 @@ Cricsheet import → cricket-core → Records, Table and pre-season Home, plus M
 | Live layout check | Done | `npm run screenshots -- https://npl-website-v4qu.vercel.app <dir>`: no overflow, no page errors at 375/768/1440 |
 | Lighthouse (mobile, 24 Oct) | Done | Home: perf 99, a11y 100, best-practices 96, SEO 100; LCP 2.1 s, CLS 0, TBT 80 ms. Records 98/100/96/100, match page 97/100/96/100. Lab run from a desktop machine with Lighthouse's simulated mobile throttling, not a real Nepal 4G device. Fixed after the run: missing favicon (the 96) and wordmark accessible name |
 
+## Milestone 2a — Season 3 content (24 Oct)
+
+| Item | Status | Evidence |
+| --- | --- | --- |
+| 32 fixtures | Done | `data/s3/fixtures.json` from the published schedule (read 24 Oct, approved by Rohit). Each team plays 7, 28 unique pairings. 12:30 PM / 4:30 PM Nepal time stored as UTC |
+| Next-match board on home | Done | Both team logos and colours, kick-off in Nepal time, S1/S2 form |
+| Team pages `/teams`, `/teams/[slug]` | Done | Logo, colour, squad as listed, S3 fixtures, S1/S2 record, top run-scorers/wicket-takers |
+| Logos & colours | Done | 8 logos (one matching set), colours sampled from logos; trademark notice in footer |
+| Squads | Partial, unverified | From team sites. Biratnagar lists 6; Kathmandu from a fantasy app. Players in two squads: Shubh Kansakar (KY/JB), Kishore Mahato (LL/JB), Aakash Tripathi (LL/KG), Sachin Bhatta (SR/JB), Aasif Sheikh (LL/JB) |
+| Screenshot check | Done | 8 routes × 3 widths on the production build, clean |
+
 ## Decisions and deviations
 
 - npm workspaces instead of pnpm (pnpm not installed; nothing depends on it).

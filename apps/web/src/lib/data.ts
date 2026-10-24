@@ -15,7 +15,7 @@ import {
   type Team,
   type WicketKind,
 } from "@npl/cricket-core";
-import { loadDataset, loadS3Fixtures, loadS3Results } from "@npl/data";
+import { loadDataset, loadS3Fixtures, loadS3Results, loadS3Squads, type Fixture } from "@npl/data";
 
 export const ds = () => loadDataset();
 
@@ -173,6 +173,42 @@ export function s3Table() {
 }
 
 export const s3Fixtures = () => loadS3Fixtures();
+export const s3Squads = () => loadS3Squads();
+
+/** Upcoming fixtures from `now`, earliest first. A match stays "next" until 4 hours after the start. */
+export function upcomingFixtures(now = new Date()) {
+  const cutoff = now.getTime() - 4 * 3600_000;
+  return s3Fixtures().fixtures.filter((f) => f.status !== "cancelled" && Date.parse(f.startsAtUtc) > cutoff);
+}
+
+export const fixtureLabel = (f: Fixture) => (f.stage === "league" ? `Match ${f.matchNumber}` : STAGE_LABEL[f.stage]);
+
+export function teamFixtures(teamId: string) {
+  return s3Fixtures().fixtures.filter((f) => f.teams?.includes(teamId));
+}
+
+/** Season-by-season results for a team from the ball-by-ball archive. */
+export function teamHistory(teamId: string) {
+  return historicalSeasons().map((s) => {
+    const ms = matchesIn(s.id).filter((m) => m.teams.includes(teamId));
+    const won = ms.filter((m) => winnerOf(m) === teamId).length;
+    const nr = ms.filter((m) => m.outcome.type === "no-result" || m.outcome.type === "abandoned").length;
+    const reached = ms.filter((m) => m.stage !== "league").map((m) => m.stage);
+    const champion = ms.some((m) => m.stage === "final" && winnerOf(m) === teamId);
+    return { season: s, played: ms.length, won, lost: ms.length - won - nr, noResult: nr, playoffs: reached, champion };
+  });
+}
+
+/** Top run-scorers and wicket-takers for a team across the archive. */
+export function teamLeaders(teamId: string) {
+  const a = agg();
+  const runs = new Map<string, number>();
+  const wkts = new Map<string, number>();
+  for (const b of a.battingInnings) if (b.ref.team === teamId) runs.set(b.player, (runs.get(b.player) ?? 0) + b.runs);
+  for (const b of a.bowlingFigures) if (b.ref.team === teamId) wkts.set(b.player, (wkts.get(b.player) ?? 0) + b.wickets);
+  const top = (m: Map<string, number>) => [...m].sort((x, y) => y[1] - x[1]).slice(0, 5).map(([player, value]) => ({ player, value }));
+  return { runs: top(runs), wickets: top(wkts) };
+}
 export const s3Season = () => ds().seasons.find((s) => s.id === "s3")!;
 
 export const finals = () => ds().matches.filter((m) => m.stage === "final");

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FixtureList } from "@/components/FixtureList";
 import { MatchRow } from "@/components/MatchRow";
 import { Tag } from "@/components/Tag";
 import { historicalSeasons, matchesIn, s3Fixtures } from "@/lib/data";
@@ -20,7 +21,7 @@ export default function MatchesPage() {
         <div className="wrap">
           <div className="sec-head">
             <h2 className="display">Season 3</h2>
-            <p className="aside">{fx.status === "approved" ? <Tag kind="official_confirmed">Official schedule</Tag> : <Tag kind="pending">Fixture sheet pending</Tag>}</p>
+            <p className="aside">{fx.status === "approved" ? <><Tag kind="official_confirmed">Schedule</Tag> 32 matches · times in Nepal time</> : <Tag kind="pending">Fixture sheet pending</Tag>}</p>
           </div>
           {fx.fixtures.length === 0 ? (
             <div className="empty">
@@ -30,7 +31,9 @@ export default function MatchesPage() {
                 (Asia/Kathmandu).
               </p>
             </div>
-          ) : null}
+          ) : (
+            <FixtureList fixtures={fx.fixtures} />
+          )}
         </div>
       </section>
 
