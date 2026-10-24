@@ -1,0 +1,13 @@
+{
+  "_note": "Canonical team list. Names are display spellings pending official verification; aliases are spellings seen in sources. colour stays null until verified palette values are entered.",
+  "teams": [
+    { "id": "biratnagar-kings", "name": "Biratnagar Kings", "shortName": "BK", "aliases": ["Biratnagar Kings"], "colour": null, "spellingVerified": false },
+    { "id": "chitwan-rhinos", "name": "Chitwan Rhinos", "shortName": "CR", "aliases": ["Chitwan Rhinos"], "colour": null, "spellingVerified": false },
+    { "id": "janakpur-bolts", "name": "Janakpur Bolts", "shortName": "JB", "aliases": ["Janakpur Bolts"], "colour": null, "spellingVerified": false },
+    { "id": "karnali-yaks", "name": "Karnali Yaks", "shortName": "KY", "aliases": ["Karnali Yaks"], "colour": null, "spellingVerified": false },
+    { "id": "kathmandu-gorkhas", "name": "Kathmandu Gorkhas", "shortName": "KG", "aliases": ["Kathmandu Gorkhas", "Kathmandu Gurkhas"], "colour": null, "spellingVerified": false },
+    { "id": "lumbini-lions", "name": "Lumbini Lions", "shortName": "LL", "aliases": ["Lumbini Lions"], "colour": null, "spellingVerified": false },
+    { "id": "pokhara-avengers", "name": "Pokhara Avengers", "shortName": "PA", "aliases": ["Pokhara Avengers"], "colour": null, "spellingVerified": false },
+    { "id": "sudurpaschim-royals", "name": "Sudurpaschim Royals", "shortName": "SR", "aliases": ["Sudurpaschim Royals", "Sudur Paschim Royals"], "colour": null, "spellingVerified": false }
+  ]
+}

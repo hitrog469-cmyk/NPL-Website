@@ -1,0 +1,16 @@
+{
+  "_note": "cricsheetSeason maps Cricsheet's info.season label to our season id.",
+  "seasons": [
+    { "id": "s1", "label": "Season 1", "year": 2024, "cricsheetSeason": "2024/25", "status": "completed" },
+    { "id": "s2", "label": "Season 2", "year": 2025, "cricsheetSeason": "2025/26", "status": "completed" },
+    {
+      "id": "s3",
+      "label": "Season 3",
+      "year": 2026,
+      "cricsheetSeason": null,
+      "status": "upcoming",
+      "window": { "start": "2026-10-26", "end": "2026-11-21", "source": "admin_reported" },
+      "plannedFormat": "8 teams, 28 league matches + 4 playoffs (admin reported, pending official fixture sheet)"
+    }
+  ]
+}

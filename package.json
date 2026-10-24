@@ -1,0 +1,27 @@
+{
+  "name": "npl-platform",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @npl/web",
+    "build": "npm run build -w @npl/web",
+    "test": "vitest run",
+    "typecheck": "tsc -p packages/cricket-core && tsc -p packages/data && npm run typecheck -w @npl/web",
+    "import:cricsheet": "tsx scripts/import-cricsheet.ts",
+    "verify:stats": "tsx scripts/verify-stats.ts",
+    "screenshots": "tsx scripts/screenshots.ts"
+  },
+  "devDependencies": {
+    "@npl/cricket-core": "0.1.0",
+    "@npl/data": "0.1.0",
+    "@types/node": "^22.10.0",
+    "fflate": "^0.8.2",
+    "playwright": "^1.64.1",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.0",
+    "vitest": "^5.0.5"
+  }
+}

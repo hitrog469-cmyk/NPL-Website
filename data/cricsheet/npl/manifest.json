@@ -1,0 +1,583 @@
+{
+  "source": "https://cricsheet.org/downloads/npl_json.zip",
+  "licence": "Open Data Commons Attribution License (ODC-By) v1.0 — https://opendatacommons.org/licenses/by/1-0/",
+  "parserVersion": "1.0.0",
+  "matches": [
+    {
+      "id": "1462596",
+      "file": "1462596.json",
+      "sha256": "af1c988b35261312b8605f8cdcdd13eb9cfbfca5ba104f2f58558ac4b936ccbe",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462640",
+      "file": "1462640.json",
+      "sha256": "def635cc05f4f66dab98e5ce77627ff357833eea1d02bd50ac1e404945d94aa0",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462641",
+      "file": "1462641.json",
+      "sha256": "348ea911ed55723630c312be30ec383c84dd55ec72a745d63da3ca54b61f89d3",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462642",
+      "file": "1462642.json",
+      "sha256": "7eb38826c14635ff26dbc2cc6578d7049cca5899bbeeb400038ea7f97ae29d2a",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462643",
+      "file": "1462643.json",
+      "sha256": "f30e242dfbdd685436e9f7d17c67f93e62ed7b7ed0cc8f8e120b26fb91adfe5a",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462644",
+      "file": "1462644.json",
+      "sha256": "2c76db1b4b4ce58cc4064811c3f7215e65a1fd2e928509f6205cbbbc5679def1",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462645",
+      "file": "1462645.json",
+      "sha256": "209e6390bb236079cd31534b584739867aa4a2772002871ed65fcdea63e6387b",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462646",
+      "file": "1462646.json",
+      "sha256": "fca1e86f9c0b148ff03aed055023844fdaf070e7ccdfc2ff456bd04f8f03547b",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462647",
+      "file": "1462647.json",
+      "sha256": "e25c6a4f6efdcda75f5d0a95889cb466eab7d250c19295a906041caef1f56d27",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462648",
+      "file": "1462648.json",
+      "sha256": "144486829a4a096402351595c023542b5f50d8f3f507891f4723c488c9b7168e",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462649",
+      "file": "1462649.json",
+      "sha256": "a64bf53aba22a96e60ea571075ebf2db6298aca8fcfe28e5193dc0a2f621839c",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462650",
+      "file": "1462650.json",
+      "sha256": "2b4ed001ae2391449bb922b724a2d48cc2c4a97d91b1ae4dc36bf60c903dbfe8",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462651",
+      "file": "1462651.json",
+      "sha256": "d7f8984857032cf83d3bfe61bb60f4abc504e6cf38f195fc7a2a2ba30219ddd6",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462652",
+      "file": "1462652.json",
+      "sha256": "529b376cf6c071019eff26f1ad9c4c13cd20d3f2a2fa19b7c94e09caf00e9c32",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462653",
+      "file": "1462653.json",
+      "sha256": "b4cbd3a6d95aa42b85ce9aace50253e38e0cf18c62b18bdbf890ecb9665390c1",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462654",
+      "file": "1462654.json",
+      "sha256": "b8153fad743a4991c06a6163771988f6a44c2bf6c02c4b489f607ab905cd73cf",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462655",
+      "file": "1462655.json",
+      "sha256": "2454890779d72653ecd6b53390856700c9224e91ededcd2bf3cb11caaf07fe03",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462656",
+      "file": "1462656.json",
+      "sha256": "791253b77b907cc44553214628b3eab3197bea99d7b0abea3ec40ff20ac86cc0",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462657",
+      "file": "1462657.json",
+      "sha256": "ec3e70e353f0e7977ec5c98a7a183d8661fd1ec3723f2eb136ff142c4e742c32",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462658",
+      "file": "1462658.json",
+      "sha256": "71b8bf8f1291c1a0783b31e94dd63bc0bac38bc08d415eacdcf51fbe01b5ec67",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462659",
+      "file": "1462659.json",
+      "sha256": "9dc8d56848e588f673162010c12558933ddbf74d2d5467f923375d2f6d82851c",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462660",
+      "file": "1462660.json",
+      "sha256": "65557fb56f0485ddb3e85d88ef9189f01cbe6b36d6a45c9d1dcc7363bc22241a",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462661",
+      "file": "1462661.json",
+      "sha256": "4d8b142059b01ff4d317047b8c240303bec41ec8cfde8975994cca876bc224eb",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462662",
+      "file": "1462662.json",
+      "sha256": "11261b86b8b8619a74d4366ba639b155eebe8d83cb586f27f8b151339988d1ff",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462663",
+      "file": "1462663.json",
+      "sha256": "ad88b8bce53e1733e1ab9f4f09e9aad697ca4cd700b7540a427da1e6b4047a39",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462664",
+      "file": "1462664.json",
+      "sha256": "4395e8a77289037aac52cf2dcc8897cc6a80f05d4c58c3bf8c8294b181d5f9f2",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462665",
+      "file": "1462665.json",
+      "sha256": "3613405c6c83310324adb78f3f61a23e473f2f845b81c69c4e4aabe338075cc0",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462666",
+      "file": "1462666.json",
+      "sha256": "ba6043d4dbd3dd8e3c82f895fdcb5d4ba9c6b19c0c18b9cf1ec3a8db10fd65b5",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462667",
+      "file": "1462667.json",
+      "sha256": "6616077622ff29dbc2166980b6842478c90a6defb079ba750eea47dcfca79028",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462668",
+      "file": "1462668.json",
+      "sha256": "3ea347c1dafc6587c0625a4e71d8bedc0b96db65e21cc5f41c82aaa0cdc7eece",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462669",
+      "file": "1462669.json",
+      "sha256": "58dd78548bb46b82c2af33b7eaa5cf66c0d816830cee1bfab4490ffee32ad64a",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1462670",
+      "file": "1462670.json",
+      "sha256": "108366959bd6141fcbe47433efa402fa59b66698614fda8ec00562c917e7408d",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-01-03",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510977",
+      "file": "1510977.json",
+      "sha256": "458c118c831fe525e222db33c642970c574bdb1b6db6bd0cb6fc85851965b8c5",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-18",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510978",
+      "file": "1510978.json",
+      "sha256": "6d2b5cf12e48d7677b16a81886d781b8c08312818be64163a2bdc7a1e8f527f2",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-19",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510979",
+      "file": "1510979.json",
+      "sha256": "7d438148aea39b45616318b0126d6aa209ceb6bc93c24802f1771a4fa5e674b3",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-19",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510980",
+      "file": "1510980.json",
+      "sha256": "405008becf179ddebda39968ad11aafd84878844d93aba0c75d58187246199bf",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-19",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510981",
+      "file": "1510981.json",
+      "sha256": "142f76b494da14c17f530dc004f106e189f66ec4705ba795c65d88cf4db2d0c7",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-20",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510982",
+      "file": "1510982.json",
+      "sha256": "3c03401d1e0a80cca3e3696f9cddbf679962b49779488348a94528c8cd7f813d",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-24",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510983",
+      "file": "1510983.json",
+      "sha256": "cb31304616b118ffa81e4b979b6c6c95874309e3e8eeaa6b7b76cc76d79bc03c",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-24",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510984",
+      "file": "1510984.json",
+      "sha256": "4a3c45176b6822e9c9d52dd1c03887471e4a01b4dd34db9727e397bbc1f937ad",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-24",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510985",
+      "file": "1510985.json",
+      "sha256": "82eed6ebca1b9f68d81bb5e1d2e0c533597f9b07ed38ab7da939708528174580",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-24",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510986",
+      "file": "1510986.json",
+      "sha256": "dbfc3ceb814b82b78409b08d356403ce813b345fa5b50722df76bbf1228de741",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-24",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510987",
+      "file": "1510987.json",
+      "sha256": "6d7ed508c555ec3d37307e187a3e8050e2a31b786a88e549e1021fafb0e9927c",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-25",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510988",
+      "file": "1510988.json",
+      "sha256": "82a7a33e4f14b0cf4a1a59dcd33babfe3a5cc1c152cb6d7301634e7b497fd626",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-26",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510989",
+      "file": "1510989.json",
+      "sha256": "0d0854e4ca4c7f55c20fffa35a1f2ee1115087bae170787c8140d20e9c247c88",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-27",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510990",
+      "file": "1510990.json",
+      "sha256": "3fcede9b5fed5426ad5831fffd53788dea5c6c85f316539edb2baa6dc7447353",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-11-27",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510991",
+      "file": "1510991.json",
+      "sha256": "9049e4a3c1862262d8d2c33349f0a74680715b22e0eda2de965471467c884f13",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510992",
+      "file": "1510992.json",
+      "sha256": "e8decf29fa87b9280d6b40e9084afaadde0deb02ffa9894dc7216bdb966db0c8",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510993",
+      "file": "1510993.json",
+      "sha256": "48fdfd7fc260a546fc5b70adbc8cd0c7a0bc34e8f47b3cf78c8dbda23dacfee3",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510994",
+      "file": "1510994.json",
+      "sha256": "6850c980e8609b42377c825c87c67a1c16677b19b00fae5541d2a1dd0e297478",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510995",
+      "file": "1510995.json",
+      "sha256": "16b5b9516196307cf4b04045400591a2ded3ac93381d4c0a4e7c633ff7c9f97d",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510996",
+      "file": "1510996.json",
+      "sha256": "ea9a13ab12196c68f3ffcead745bb38652dec4b76677ec5b7c218b70d4207c85",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510997",
+      "file": "1510997.json",
+      "sha256": "b072d3203f18ec4a7523d2c6b0b1c98223b3ac42e9213b6d2a228342119845e8",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510998",
+      "file": "1510998.json",
+      "sha256": "efe30bdfbe48fac8269a15ed93d0f015899c3ef35f30864b08c64d3bce4bea2c",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1510999",
+      "file": "1510999.json",
+      "sha256": "0cdecd1a71a88f2899db7879a7f3792d48aa539c21dbc7b9d5ef4283f50e0714",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511000",
+      "file": "1511000.json",
+      "sha256": "1d33e5d64ac9fe1f250f056101459c24ac4a4a3d377b97a61aed1be8c34b16be",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-12",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511001",
+      "file": "1511001.json",
+      "sha256": "f58f0b49db963ae0babdabc4a70bf317b26556e5564ffae287592e60c5811db1",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-15",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511002",
+      "file": "1511002.json",
+      "sha256": "e55d54252304395bde5771e3afa8c92eefdd5707c929fa6362c53d4f123affa7",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-15",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511003",
+      "file": "1511003.json",
+      "sha256": "9505b7433fa34736e6b7589656f721e96185e2a31e6331c9138a863fefda7e06",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-15",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511004",
+      "file": "1511004.json",
+      "sha256": "4210d2f9852d517e7aea29df0d4ce1da879c15b253c958e6143e632eac6d0b87",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-15",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511005",
+      "file": "1511005.json",
+      "sha256": "2694be34f8a30726aaace96dc29bf973695f91d06df675455b21c3cabe254c86",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-18",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511006",
+      "file": "1511006.json",
+      "sha256": "bdacbbf07cc68ca1c79d0f6e6ff00e81488cdc8d963f8561ecad03d560c652fd",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-18",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511007",
+      "file": "1511007.json",
+      "sha256": "0608f18861a61b9f750996f988f31123d5550ff3adb8e85d5dfb84f8068a1315",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-19",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    },
+    {
+      "id": "1511008",
+      "file": "1511008.json",
+      "sha256": "40cfd18d01b394e4426f8a97edacaa82b15af3ea29a1035de9c4aa2b3d314c65",
+      "dataVersion": "1.2.0",
+      "revision": 1,
+      "created": "2025-12-19",
+      "importedAt": "2026-10-24T05:22:53.911Z"
+    }
+  ]
+}

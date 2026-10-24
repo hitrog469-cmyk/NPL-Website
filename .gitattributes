@@ -1,0 +1,4 @@
+* text=auto eol=lf
+# Source files are checksummed; keep them byte-exact.
+data/cricsheet/** -text
+*.png binary
