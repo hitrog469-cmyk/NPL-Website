@@ -52,13 +52,24 @@ export function useLiveMatch(fixtureId: string) {
       return;
     }
     let cancelled = false;
+    let loadNo = 0;
+    let inFlight = 0;
+    let dirty = false;
 
-    const load = async () => {
+    // Full reload. Only the latest call may apply its result, and if a live
+    // message arrived while it was in flight its snapshot may be stale, so it
+    // reloads again instead of overwriting newer data.
+    const load = async (): Promise<void> => {
+      const mine = ++loadNo;
+      inFlight++;
+      dirty = false;
       const [ev, lm] = await Promise.all([
         sb.from("ball_events").select("id,innings,seq,kind,payload").eq("fixture_id", fixtureId).order("innings").order("seq"),
         sb.from("live_matches").select("*").eq("fixture_id", fixtureId).maybeSingle(),
       ]);
-      if (cancelled) return;
+      inFlight--;
+      if (cancelled || mine !== loadNo) return;
+      if (dirty) return load();
       if (ev.error || lm.error) {
         setConn("offline");
         return;
@@ -75,10 +86,12 @@ export function useLiveMatch(fixtureId: string) {
         const r = p.new as Row;
         if (seen.current.has(r.id)) return;
         seen.current.add(r.id);
+        if (inFlight) dirty = true;
         setEvents((prev) => [...prev, toEvent(r)]);
         setLastUpdate(new Date());
       })
       .on("postgres_changes", { event: "*", schema: "public", table: "live_matches", filter: `fixture_id=eq.${fixtureId}` }, (p) => {
+        if (inFlight) dirty = true;
         setMatch(p.new as LiveMatchRow);
         setLastUpdate(new Date());
       })

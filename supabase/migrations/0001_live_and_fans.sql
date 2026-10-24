@@ -231,7 +231,7 @@ insert into public.live_matches (fixture_id) select id from public.fixtures on c
 
 -- Wipe the rehearsal match so it can be practised again. Admins only; touches nothing else.
 create or replace function public.reset_rehearsal() returns void
-language plpgsql security definer set search_path = '' as $
+language plpgsql security definer set search_path = '' as $$
 begin
   if not public.is_admin() then
     raise exception 'admins only';
@@ -240,7 +240,7 @@ begin
   delete from public.predictions where fixture_id = 'rehearsal';
   update public.live_matches set status = 'scheduled', setup = '{}'::jsonb, result = null, note = null where fixture_id = 'rehearsal';
 end;
-$;
+$$;
 revoke execute on function public.reset_rehearsal() from public;
 grant execute on function public.reset_rehearsal() to authenticated;
 
