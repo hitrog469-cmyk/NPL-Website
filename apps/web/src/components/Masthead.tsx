@@ -25,7 +25,7 @@ export function Masthead() {
       </div>
       <div className="masthead">
         <div className="wrap">
-          <Link href="/" className="wordmark" aria-label={`${SITE.name} home`}>
+          <Link href="/" className="wordmark">
             <span className="display">{SITE.name}</span>
             <span className="label tag-sm">NPL · S3</span>
           </Link>
