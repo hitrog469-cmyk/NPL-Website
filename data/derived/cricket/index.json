@@ -47,38 +47,38 @@
   "format": "T20",
   "kind": "international",
   "coverage": {
-   "matches": 3627,
+   "matches": 3646,
    "first": "2005-02-17",
-   "last": "2026-10-14"
+   "last": "2026-10-25"
   },
   "latest": {
-   "id": "1554582",
-   "date": "2026-10-14",
+   "id": "1557534",
+   "date": "2026-10-25",
    "season": "2026/27",
-   "venue": "YSD-UKM Cricket Oval, Bangi",
+   "venue": "Nigeria Cricket Federation Oval 1, Abuja",
    "stage": "league",
    "teams": [
-    "Saudi Arabia",
-    "Maldives"
+    "Nigeria",
+    "Uganda"
    ],
    "innings": [
     {
-     "team": "Saudi Arabia",
-     "runs": 194,
-     "wickets": 5,
-     "overs": "20",
-     "allOut": false
+     "team": "Nigeria",
+     "runs": 148,
+     "wickets": 10,
+     "overs": "19.4",
+     "allOut": true
     },
     {
-     "team": "Maldives",
-     "runs": 69,
-     "wickets": 10,
-     "overs": "17.1",
-     "allOut": true
+     "team": "Uganda",
+     "runs": 147,
+     "wickets": 9,
+     "overs": "20",
+     "allOut": false
     }
    ],
-   "winner": "Saudi Arabia",
-   "result": "Saudi Arabia won by 125 runs"
+   "winner": "Nigeria",
+   "result": "Nigeria won by 1 run"
   }
  },
  {
@@ -293,38 +293,38 @@
   "format": "ODI",
   "kind": "international",
   "coverage": {
-   "matches": 2596,
+   "matches": 2607,
    "first": "2002-06-27",
-   "last": "2026-10-13"
+   "last": "2026-10-25"
   },
   "latest": {
-   "id": "1554417",
-   "date": "2026-10-13",
+   "id": "1559563",
+   "date": "2026-10-25",
    "season": "2026/27",
-   "venue": "Al Amerat Cricket Ground Oman Cricket (Ministry Turf 1)",
+   "venue": "ICC Academy, Dubai",
    "stage": "league",
    "teams": [
-    "Nepal",
-    "Oman"
+    "United Arab Emirates",
+    "Netherlands"
    ],
    "innings": [
     {
-     "team": "Nepal",
-     "runs": 263,
+     "team": "United Arab Emirates",
+     "runs": 244,
      "wickets": 8,
      "overs": "50",
      "allOut": false
     },
     {
-     "team": "Oman",
-     "runs": 150,
-     "wickets": 10,
-     "overs": "40",
-     "allOut": true
+     "team": "Netherlands",
+     "runs": 245,
+     "wickets": 7,
+     "overs": "43.5",
+     "allOut": false
     }
    ],
-   "winner": "Nepal",
-   "result": "Nepal won by 113 runs"
+   "winner": "Netherlands",
+   "result": "Netherlands won by 3 wickets"
   }
  },
  {
@@ -334,52 +334,45 @@
   "format": "Test",
   "kind": "international",
   "coverage": {
-   "matches": 896,
+   "matches": 897,
    "first": "2001-12-19",
-   "last": "2026-10-09"
+   "last": "2026-10-18"
   },
   "latest": {
-   "id": "1525659",
-   "date": "2026-10-09",
+   "id": "1525660",
+   "date": "2026-10-18",
    "season": "2026/27",
-   "venue": "Kingsmead, Durban",
+   "venue": "St George's Park, Gqeberha",
    "stage": "league",
    "teams": [
-    "Australia",
-    "South Africa"
+    "South Africa",
+    "Australia"
    ],
    "innings": [
     {
-     "team": "Australia",
-     "runs": 390,
-     "wickets": 10,
-     "overs": "137.2",
-     "allOut": true
-    },
-    {
      "team": "South Africa",
-     "runs": 284,
-     "wickets": 10,
-     "overs": "78",
-     "allOut": true
-    },
-    {
-     "team": "Australia",
-     "runs": 314,
-     "wickets": 6,
-     "overs": "58",
+     "runs": 425,
+     "wickets": 9,
+     "overs": "127.1",
      "allOut": false
     },
     {
-     "team": "South Africa",
-     "runs": 206,
+     "team": "Australia",
+     "runs": 99,
      "wickets": 10,
-     "overs": "86.5",
+     "overs": "42.3",
+     "allOut": true
+    },
+    {
+     "team": "Australia",
+     "runs": 295,
+     "wickets": 10,
+     "overs": "107.1",
      "allOut": true
     }
    ],
-   "winner": "Australia",
-   "result": "Australia won by 214 runs"
+   "winner": "South Africa",
+   "result": "South Africa won by 31 runs"
   }
  }
 ]
